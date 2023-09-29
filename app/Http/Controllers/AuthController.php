@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\Profile;
 
 class AuthController extends Controller
 {
@@ -36,8 +37,28 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed, redirect to a success page or dashboard.
-            return redirect()->intended('/home');
+            // Authentication passed, retrieve additional data from the profiles table
+            $user = Auth::user(); // Get the authenticated user instance
+            $profile = Profile::where('user_id', $user->id)->first(); // Retrieve the user's profile
+
+            if ($profile) {
+                // If a profile exists, store its data in sessions
+                
+                Session::put('id', $user->id);
+                Session::put('profile_picture', $profile->profile);
+                Session::put('email', $user->email);
+                Session::put('username', $profile->username);
+                Session::put('status', 'complete');
+                return redirect()->intended('/home');
+            } else {
+                // Handle the case where the user has no profile data
+                // You can set default values or handle it as needed
+                Session::put('status', 'profile_pending'); // Store status as "profile_pending"
+                Session::put('id', $user->id);
+                return redirect()->intended('/profile');
+            }
+
+            
         }
 
         // Authentication failed, redirect back with an error message.

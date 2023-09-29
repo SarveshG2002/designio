@@ -1,61 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
-    <!-- Include your CSS stylesheets here -->
-</head>
+@include('includes.header')
+
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-
-                            <div class="form-group">
-                                <label for="email">{{ __('E-Mail Address') }}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password">{{ __('Password') }}</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-0">
-                                <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
-                            </div>
-
-                            <a href="/register">Register</a>
-
-                        </form>
-                    </div>
+    <div style="width: 100%;margin-top:100px;text-align:center;font-family: cursue;">
+        <h1>Login Form</h1>
+    </div>
+    <div class="row" style="width: 50%;margin-top:100px">
+        <form class="col s12" method="post" action="login">
+            @csrf
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="text" class="validate">
+                    <label for="email">Email</label>
+                </div>
+               
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="text" class="validate">
+                    <label for="password">Password</label>
                 </div>
             </div>
-        </div>
+
+            
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+            <br>
+            <br>
+            <a href="register">Register</a>
+        </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
     <!-- Include your JavaScript scripts here -->
 </body>
 </html>

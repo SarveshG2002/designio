@@ -10,7 +10,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 <body>
-    <div class="row" style="width:50%">
+    <div style="width: 100%;margin-top:100px;text-align:center;font-family: cursue;">
+        <h1>Complete Profile</h1>
+    </div>
+    <div class="row" style="width:50%;margin-top: 100px;">
             
         <form class="col s12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -19,7 +22,7 @@
 
                 <div class="input-field col s6">
                     <label for="username" >Username (Unique):</label>
-                    <input type="text" id="username" name="username" class="validate" required>
+                    <input type="text" id="username" name="username" required>
                     @error('username')
                     <div style="color: red;">{{ $message }}</div>
                     @enderror
@@ -114,11 +117,13 @@
                     @enderror
                 </div>
                 
-
+                <div  class="input-field col s6">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Save
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
                 
                 
-
-                <button type="submit">Save</button>
         </div>
     </form>
     </div>
