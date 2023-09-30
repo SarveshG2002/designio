@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    @include('includes.layout-header')
 <body>
-    Home
-    <a href="logout">Logout</a>
+    @include('includes.navbar')
+    <div class="container">
+        <div class="sidebar">
+            @include('includes.sidebar')
+        </div>
+        <div class="middle">
+            Middle panel
+        </div>
+        <div class="rightbar">
+            right bar
+        </div>
+    </div>                                                                                                                                                                                                                       
 </body>
 </html>
