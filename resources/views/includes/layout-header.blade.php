@@ -9,10 +9,17 @@
         body{
             background-color: #d8d8d8
         }
+
+        .main_container{
+            height: 100vh;
+        }
         .navbox{
             width: 100%;
-            height: 50px;
-            background-color: #ffffff
+            height: 6%;
+            background-color: #ffffff;
+            border-width: 0px 0px 0.5px 0px;
+            border-style: ridge;
+            border-color: rgb(209, 209, 209);
         }
         .navbox .row{
             display: grid;
@@ -102,11 +109,16 @@
             display: grid;
             grid-template-columns: 20% 70% 10%;
         }
+        .sidebar{
+            width: 100%;
+            height: 100vh;
+            background-color: #ffffff
+        }
         .sidebardiv{
             width: 100%;
+            height: 94.5%;
+            background-color: #ffffff
         }
         
-                    
-
     </style>
 </head>
