@@ -50,7 +50,7 @@
             border: none;
             border-right: none;
             padding: 5px;
-            height: 26px;
+            height: 36px;
             border-radius: 15px 0 0 15px;
             outline: none;
             color: #9DBFAF;
@@ -188,7 +188,7 @@
         .sidebardiv .navigations .navigation .inditext{
             /* background-color: #eeeeee; */
             width: 100%;
-            /* height: 50px; */
+            height: 50px;
             font-family: 'Croissant One', cursive;
             position: relative;
             display: flex;
@@ -199,15 +199,11 @@
             padding: 0px 0px 0px 20px;
         }
 
-        /* .sidebardiv .navigations .navigation .inditext .text{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            padding-left: 20px
-        } */
 
 
-        
+        .sidebardiv .navigations .navigation:hover {
+            cursor: pointer;
+        }
+
     </style>
 </head>

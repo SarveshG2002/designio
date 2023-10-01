@@ -9,6 +9,7 @@ use App\Models\Profile;
 
 class AuthController extends Controller
 {
+
     public function showLoginForm()
     {
         // Check if the 'status' session exists

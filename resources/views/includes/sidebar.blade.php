@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="navigations">
-        <div class="navigation">
+        <div class="navigation" onclick="loadmypage('home')">
             <div class="indicator">
             
             </div>
@@ -27,8 +27,8 @@
                     Feed
             </div>
         </div>
-        <div class="navigation">
-            <div class="indicator">
+        <div class="navigation" onclick="loadmypage('explore')">
+            <div class="">
             
             </div>
             <div class="inditext">
@@ -39,8 +39,8 @@
                     Explore
             </div>
         </div>
-        <div class="navigation">
-            <div class="indicator">
+        <div class="navigation" onclick="loadmypage('friends')">
+            <div class="">
             
             </div>
             <div class="inditext">
@@ -51,19 +51,20 @@
                     Friends
             </div>
         </div>
-        <div class="navigation">
-            <div class="indicator">
+        <div class="navigation" onclick="loadmypage('group')">
+            <div class="">
             
             </div>
             <div class="inditext">
                     <span class="material-symbols-outlined">
-group                        </span>
+                    group                        
+                    </span>
                         &nbsp;&nbsp;
                     Groups
             </div>
         </div>
-        <div class="navigation">
-            <div class="indicator">
+        <div class="navigation" onclick="loadmypage('trending')">
+            <div class="">
             
             </div>
             <div class="inditext">
@@ -74,8 +75,8 @@ group                        </span>
                     Trending
             </div>
         </div>
-        <div class="navigation">
-            <div class="indicator">
+        <div class="navigation" onclick="loadmypage('setting')">
+            <div class="">
             
             </div>
             <div class="inditext">
@@ -88,3 +89,9 @@ group                        </span>
         </div>
     </div>
 </div>
+
+<script>
+    function loadmypage(page){
+        window.location.href="login"
+    }
+</script>
