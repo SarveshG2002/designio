@@ -92,6 +92,6 @@
 
 <script>
     function loadmypage(page){
-        window.location.href="login"
+        window.location.href=page
     }
 </script>

@@ -145,6 +145,24 @@ class AuthController extends Controller
     }
 
 
+    public function explore(){
+        return view('user.explore');
+    }
+    public function friends(){
+        return view('user.friends');
+    }
+    public function group(){
+        return view('user.groups');
+    }
+    public function trending(){
+        return view('user.trending');
+    }
+    public function setting(){
+        return view('user.setting');
+    }
+    
+
+
 
     // Add more authentication methods (registration, password reset, etc.) here.
 }
