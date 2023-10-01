@@ -2,10 +2,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Ubuntu&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://kit.fontawesome.com/c01abb6312.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <style>
         *{
             margin: 0px;
             box-sizing: border-box
+        }
+        ::-webkit-scrollbar {
+            width: 0px; /* Set the width of the scrollbar */
         }
         body{
             background-color: #d8d8d8

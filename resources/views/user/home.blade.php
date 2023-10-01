@@ -25,23 +25,71 @@
                     </div>
                     
                     <div class="feedcontainer">
-                        <div class="feed">
-                            <div class="userinfo">
-
-                            </div>
-                            <div class="discription">
-
-                            </div>
-                            <div class="artwork">
-
-                            </div>
-                            <div class="reach">
-
-                            </div>
-                            <div class="comment">
-
-                            </div>
-                        </div>
+                        <?php
+                            $feeds=[1,2,3,4];
+                            foreach($feeds as $feed){
+                                ?>
+                                <div class="feed">
+                                    <div class="userinfo">
+                                        <div class="userprofile">
+                                            <img src="default_profile.png" alt="">
+                                        </div>
+                                        <div class="username">
+                                            <div>
+                                                sarwya_not_available
+                                                <div class="time" style="font-size: 10px;">
+                                                    2 days ago
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="discription">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere accusamus enim excepturi. Dolores, itaque eum corporis modi veniam repellendus sapiente distinctio incidunt quod perspiciatis amet vero, repellat hic magnam! Enim?
+                                    </div>
+                                    <div class="artwork">
+                                        <img src="test-feed{{$feed}}.jpg" alt="">
+                                        <br>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        
+                                    </div>
+                                    <div class="reach">
+                                        <div class="commentcount">
+                                            <i class="fa-regular fa-comment"></i>
+                                                25 Comments
+                                        </div>
+                                        <div class="likes">
+                                            <div class="likeDiv" style="display:inline-block">
+                                                <i></i>
+                                                Like
+                                              </div>
+                                        </div>
+                                        <div class="save" style="text-align:right;margin-right:50px">
+                                            <i class="fa-regular fa-bookmark"></i> Save
+                                        </div>
+                                    </div>
+                                    <div class="comments">
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        <div class="wrap">
+                                            <div class="comment">
+                                               <input type="text" class="commentTerm" placeholder="Comment">
+                                               <button type="submit" class="commentButton">
+                                                <span class="material-symbols-outlined">
+                                                    search
+                                                    </span>
+                                              </button>
+                                            </div>
+                                         </div>
+                                         <br>
+                                    </div>
+                                </div>
+                                <?php
+                            }    
+                        ?>
                     </div>
                 </div>
             </div>
@@ -49,6 +97,14 @@
                 right bar
             </div>
         </div>     
-    </div>                                                                                                                                                                                                                      
+    </div>    
+    <script>
+        $(function() {
+        $( ".likeDiv" ).click(function() {
+          $( "i,span" ).toggleClass( "press", 1000 );
+        });
+      });
+    </script>
+                                                                                                                                                                                                                      
 </body>
 </html>
