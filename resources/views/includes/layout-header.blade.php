@@ -5,6 +5,7 @@
     <style>
         *{
             margin: 0px;
+            box-sizing: border-box
         }
         body{
             background-color: #d8d8d8
@@ -16,6 +17,7 @@
         .navbox{
             width: 100%;
             height: 6%;
+            min-height: 50px;
             background-color: #ffffff;
             border-width: 0px 0px 0.5px 0px;
             border-style: ridge;
@@ -160,8 +162,50 @@
             font-family: 'Ubuntu', sans-serif;
             font-size: 13px;
             color: #673ab7;
-
         }
+
+        .sidebardiv .navigations{
+            width: 100%;
+            /* padding: 10px 0px 10px 0px */
+            height: 50px;
+        }
+
+        .sidebardiv .navigations .navigation{
+            /* background-color: red; */
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2% auto;
+            /* position: relative; */
+            /* padding:  */
+            margin-top: 10px;
+        }
+        .sidebardiv .navigations .navigation .indicator{
+            background-color: #673ab7;
+            width: 100%;
+            height: 50px;
+            border-radius: 0px 10px 10px 0px;
+        }
+        .sidebardiv .navigations .navigation .inditext{
+            /* background-color: #eeeeee; */
+            width: 100%;
+            /* height: 50px; */
+            font-family: 'Croissant One', cursive;
+            position: relative;
+            display: flex;
+            align-items: center; /* Center vertically */
+            /* justify-content: center; Center horizontally */
+            /* height: 100px;  */
+            /* background-color: #ccc; */
+            padding: 0px 0px 0px 20px;
+        }
+
+        /* .sidebardiv .navigations .navigation .inditext .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding-left: 20px
+        } */
 
 
         
