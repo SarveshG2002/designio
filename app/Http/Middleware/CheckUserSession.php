@@ -15,6 +15,21 @@ class CheckUserSession
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+        if (session()->has('status')) {
+            // Check if the 'status' is 'profile_pending'
+            if (session('status') === 'profile_pending') {
+                // The user's profile is pending, redirect to the profile page
+                return redirect('profile'); // Replace 'profile' with the actual name of your profile route or URL
+            } elseif (session('status') === 'complete') {
+                // The user's profile is complete, redirect to the home page
+                return $next($request); // Replace 'home' with the actual name of your home route or URL
+            }
+        }
+    
+        // If no 'status' session or 'status' is not profile_pending or complete, show the login form
+        return redirect('login');
+        // return $next($request); 
+        
     }
 }

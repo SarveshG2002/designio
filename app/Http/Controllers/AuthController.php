@@ -67,19 +67,20 @@ class AuthController extends Controller
     }
 
     public  function home(){
-        if (session()->has('status')) {
-            // Check if the 'status' is 'profile_pending'
-            if (session('status') === 'profile_pending') {
-                // The user's profile is pending, redirect to the profile page
-                return redirect('profile'); // Replace 'profile' with the actual name of your profile route or URL
-            } elseif (session('status') === 'complete') {
-                // The user's profile is complete, redirect to the home page
-                return view('user.home'); // Replace 'home' with the actual name of your home route or URL
-            }
-        }
+        // if (session()->has('status')) {
+        //     // Check if the 'status' is 'profile_pending'
+        //     if (session('status') === 'profile_pending') {
+        //         // The user's profile is pending, redirect to the profile page
+        //         return redirect('profile'); // Replace 'profile' with the actual name of your profile route or URL
+        //     } elseif (session('status') === 'complete') {
+        //         // The user's profile is complete, redirect to the home page
+        //         return view('user.home'); // Replace 'home' with the actual name of your home route or URL
+        //     }
+        // }
     
-        // If no 'status' session or 'status' is not profile_pending or complete, show the login form
-        return view('auth.login');
+        // // If no 'status' session or 'status' is not profile_pending or complete, show the login form
+        // return redirect('login');
+        return view('user.home');
         
     }
 
