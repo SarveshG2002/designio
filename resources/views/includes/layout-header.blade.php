@@ -107,7 +107,7 @@
 
         .container{
             display: grid;
-            grid-template-columns: 20% 70% 10%;
+            grid-template-columns: 15% 75% 10%;
         }
         .sidebar{
             width: 100%;
@@ -119,6 +119,51 @@
             height: 94.5%;
             background-color: #ffffff
         }
+
+        .sidebardiv .myprofile{
+            /* background: gray; */
+            height: 100px;
+            width: 100%;
+            position: relative;
+        }
+        .sidebardiv .myprofile .profile{
+            background-color: #eeeeee;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 80%;
+            padding: 5px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 25% 75%;
+        }
+
+        .sidebardiv .myprofile .profile .img img{
+            width: 50px;
+            height : 50px;
+            border-radius: 50%;
+
+        }
+        .sidebardiv .myprofile .profile .username{
+            font-family: 'Croissant One', cursive;
+            font-family: 'Rubik', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 20px;
+            color: #673ab7;
+            margin: 5px;
+
+        }
+        .sidebardiv .myprofile .profile .username .profileuser{
+            font-family: 'Croissant One', cursive;
+            font-family: 'Rubik', sans-serif;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 13px;
+            color: #673ab7;
+
+        }
+
+
         
     </style>
 </head>

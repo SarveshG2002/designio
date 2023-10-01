@@ -6,8 +6,8 @@
         @include('includes.navbar')
         <div class="container">
             <div class="sidebar">
-                {{-- @include('includes.sidebar') --}}
-                hello
+                @include('includes.sidebar')
+                {{-- hello --}}
             </div>
             <div class="middle">
                 Middle panel
