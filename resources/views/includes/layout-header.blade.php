@@ -109,7 +109,7 @@
 
         .container{
             display: grid;
-            grid-template-columns: 15% 75% 10%;
+            grid-template-columns: 15% 70% 15%;
         }
         .sidebar{
             width: 100%;
@@ -198,9 +198,6 @@
             /* background-color: #ccc; */
             padding: 0px 0px 0px 20px;
         }
-
-
-
         .sidebardiv .navigations .navigation:hover {
             cursor: pointer;
         }

@@ -1,0 +1,34 @@
+.middle{
+    /* background-color: aquamarine; */
+}
+.middle .feedDiv{
+    width: 90%;
+    /* height: 200px; */
+    
+    margin: 10px auto;
+}
+.middle .feedDiv .statuscontainer{
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.middle .feedDiv .statuscontainer .todaystatus{
+    width: fit-content;
+    height: 100%;
+    border-radius: 20%;
+    display: inline-block;
+}
+
+.middle .feedDiv .statuscontainer .ostatus{
+    margin-left: 10px;
+}
+
+.middle .feedDiv .statuscontainer .todaystatus img{
+    height: 100%;
+    border-radius: 50%;
+}
+
+

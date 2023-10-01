@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('includes.layout-header')
+    <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
 <body>
     <div class="main_container">
         @include('includes.navbar')
@@ -10,7 +11,39 @@
                 {{-- hello --}}
             </div>
             <div class="middle">
-                Middle panel
+                <div class="feedDiv">
+                    <div class="statuscontainer">
+                        <div class="todaystatus mystatus" style="background-color: #caabff;">
+                            <img src="default_profile.png" alt="">
+                        </div>
+                        <div class="todaystatus ostatus">
+                            <img src="default_profile.png" alt="">
+                        </div>
+                        <div class="todaystatus ostatus">
+                            <img src="default_profile.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="feedcontainer">
+                        <div class="feed">
+                            <div class="userinfo">
+
+                            </div>
+                            <div class="discription">
+
+                            </div>
+                            <div class="artwork">
+
+                            </div>
+                            <div class="reach">
+
+                            </div>
+                            <div class="comment">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="rightbar">
                 right bar
