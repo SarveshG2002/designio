@@ -16,7 +16,7 @@
     </div>
     <div class="navigations">
         <div class="navigation" onclick="loadmypage('home')">
-            <div class="indicator">
+            <div class="{{ ($page=="feed")?'indicator':'' }}">
             
             </div>
             <div class="inditext">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('explore')">
-            <div class="">
+            <div class="{{ ($page=="explore")?'indicator':'' }}">
             
             </div>
             <div class="inditext">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('friends')">
-            <div class="">
+            <div class="{{ ($page=="friends")?'indicator':'' }}">
             
             </div>
             <div class="inditext">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('group')">
-            <div class="">
+            <div class="{{ ($page=="group")?'indicator':'' }}">
             
             </div>
             <div class="inditext">
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('trending')">
-            <div class="">
+            <div class="{{ ($page=="trending")?'indicator':'' }}">
             
             </div>
             <div class="inditext">
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('setting')">
-            <div class="">
+            <div class="{{ ($page=="setting")?'indicator':'' }}">
             
             </div>
             <div class="inditext">

@@ -6,7 +6,7 @@
         @include('includes.navbar')
         <div class="container">
             <div class="sidebar">
-                @include('includes.sidebar')
+                @include('includes.sidebar',['page'=>'friends'])
                 {{-- hello --}}
             </div>
             <div class="middle">
