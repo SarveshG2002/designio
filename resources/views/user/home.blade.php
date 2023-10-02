@@ -12,17 +12,38 @@
             </div>
             <div class="middle">
                 <div class="feedDiv">
-                    <div class="statuscontainer">
-                        <div class="todaystatus mystatus" style="background-color: #caabff;">
-                            <img src="default_profile.png" alt="">
+                    <div style="width:100%;display:grid;grid-template-columns: 55% 1% 44%;">
+                        <div class="statuscontainer">
+                            <div class="todaystatus mystatus" style="background-color: #caabff;">
+                                <img src="default_profile.png" alt="">
+                            </div>
+                            <div class="todaystatus ostatus">
+                                <img src="default_profile.png" alt="">
+                            </div>
+                            <div class="todaystatus ostatus">
+                                <img src="default_profile.png" alt="">
+                            </div>
                         </div>
-                        <div class="todaystatus ostatus">
-                            <img src="default_profile.png" alt="">
+                        <div>
+
                         </div>
-                        <div class="todaystatus ostatus">
-                            <img src="default_profile.png" alt="">
+                        <div class="statuscontainer">
+                            <div class="post_something">
+                                Post Something
+                            </div>
+                            <div class="newpost" style="margin-top:10px">
+                                <div class="wrap">
+                                    <div class="comment">
+                                       <input type="text" class="commentTerm" placeholder="Write here">
+                                       <button type="submit" class="commentButton">
+                                        <i class="fa-regular fa-images"></i>
+                                      </button>
+                                    </div>
+                                 </div>
+                            </div>
                         </div>
                     </div>
+                    
                     
                     <div class="feedcontainer">
                         <?php
@@ -45,6 +66,7 @@
                                         </div>
                                     </div>
                                     <div class="discription">
+                                        {{-- <br> --}}
                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere accusamus enim excepturi. Dolores, itaque eum corporis modi veniam repellendus sapiente distinctio incidunt quod perspiciatis amet vero, repellat hic magnam! Enim?
                                     </div>
                                     <div class="artwork">
