@@ -44,15 +44,24 @@
 }
 
 .middle .feedDiv .statuscontainer .newpost textarea{
-    width: 70%;
+    width: 90%;
     border: none;
     border-right: none;
     padding: 5px;
     height: 36px;
     border-radius: 15px 0 0 15px;
     outline: none;
-    color: #9DBFAF;
+    color: #673ab7;
     background-color: #eeeeee;
+}
+
+.middle .newFeedDiv .statuscontainer{
+    height: auto;
+}
+.middle .newFeedDiv .statuscontainer .newpost textarea{
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
 }
 
 .middle .feedDiv .statuscontainer .newpost button{

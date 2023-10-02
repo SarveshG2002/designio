@@ -11,7 +11,7 @@
                 {{-- hello --}}
             </div>
             <div class="middle">
-                <div class="feedDiv">
+                <div class="feedDiv" id="allFeedDiv">
                     <div style="width:100%;display:grid;grid-template-columns: 55% 1% 44%;">
                         <div class="statuscontainer">
                             <div class="todaystatus mystatus" style="background-color: #caabff;">
@@ -34,7 +34,8 @@
                             <div class="newpost" style="margin-top:10px">
                                 <div class="wrap">
                                     <div class="comment">
-                                       <input type="text" class="commentTerm" placeholder="Write here">
+                                       {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
+                                       <textarea onclick="toggletonewpost()" name="" class="commentTerm" id="" cols="30" rows="1" placeholder="Write your post"></textarea>
                                        <button type="submit" class="commentButton">
                                         <i class="fa-regular fa-images"></i>
                                       </button>
@@ -114,6 +115,21 @@
                         ?>
                     </div>
                 </div>
+                <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
+                    <div class="statuscontainer">
+                        <div class="post_something">
+                            Post Something
+                        </div>
+                        <div class="newpost" style="margin-top:10px">
+                            <div class="wrap">
+                                <div class="comment">
+                                   {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
+                                   <textarea onclick="toggletonewpost()" name="" class="commentTerm" id="" cols="30" rows="5" placeholder="Write your post"></textarea>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="rightbar">
                 right bar
@@ -122,10 +138,14 @@
     </div>    
     <script>
         $(function() {
-        $( ".likeDiv" ).click(function() {
-          $( "i,span" ).toggleClass( "press", 1000 );
+            $( ".likeDiv" ).click(function() {
+                $( "i,span" ).toggleClass( "press", 1000 );
+            });
         });
-      });
+        function toggletonewpost(){
+            document.getElementById("allFeedDiv").style.display="none"
+            document.getElementById("newFeedDiv").style.display="block"
+        }
     </script>
                                                                                                                                                                                                                       
 </body>
