@@ -3,6 +3,7 @@
     font-family: 'Croissant One', cursive;
     font-family: 'Rubik', sans-serif;
     font-family: 'Ubuntu', sans-serif;
+    color: #673ab7;
 }
 .middle{
     /* background-color: aquamarine; */
@@ -86,7 +87,7 @@
 .middle .newFeedDiv .newfeedcreator .imagecontent{
     
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 50% auto;
 }
 .middle .newFeedDiv .newfeedcreator .imagecontent .button{
     width: fit-content;
@@ -103,6 +104,10 @@
     border-color: #8858db;
     width: auto;
     display: inline-block;
+}
+
+.middle .newFeedDiv .newfeedcreator .imagecontent #imagePreview{
+    /* width: 100%; */
 }
 
 .middle .feedDiv .statuscontainer .todaystatus img{

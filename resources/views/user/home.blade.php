@@ -124,7 +124,7 @@
                             <div class="wrap">
                                 <div class="comment">
                                    {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
-                                   <textarea onclick="toggletonewpost()" name="" class="commentTerm" id="" cols="30" rows="5" placeholder="Write your post"></textarea>
+                                   <textarea oninput="document.getElementById('discriptionpreview').innerHTML=this.value" name="" class="commentTerm" id="" cols="30" rows="5" placeholder="Write your post"></textarea>
                                 </div>
                              </div>
                         </div>
@@ -133,17 +133,43 @@
                     <br>
                     <div class="statuscontainer newfeedcreator">
                        <div class="imagecontent">
-                            <div class="inputFile" onclick="document.getElementById('imageInput').click()">
-                                <div class="button">Upload Image</div>
-                                <div class="imagename">
-                                    test.jpg
+                            <div class="inputFile" >
+                                <div class="button" style="cursor:pointer" onclick="document.getElementById('imageInput').click()">Upload Image</div>
+                                <div class="imagename" id="imagename">
+                                    
                                 </div>
                                 <input type="file" id="imageInput" accept="image/*" style="display:none">
-                                <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; max-height: 200px;">
+                                <br>
+                                <br>
+                                <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style=" max-width: 100%; max-height: 200px;">
 
                             </div>
                             <div class="preview">
-                                
+                                <h2>Post Preview</h2>
+                                <div class="feedcontainer" style="margin-top: 5px">
+                                    <div class="feed" style="padding-top:5px">
+                                        <div class="userinfo">
+                                            <div class="userprofile">
+                                                <img src="default_profile.png" alt="">
+                                            </div>
+                                            <div class="username">
+                                                <div>
+                                                    sarwya_not_available
+                                                    <div class="time" style="font-size: 10px;">
+                                                        2 days ago
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="discription" id="discriptionpreview" style="white-space: pre-wrap;">
+                                        </div>
+                                        <div class="artwork">
+                                            <img src="test-feed2.jpg" id="imagePreview1"  alt="">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                             </div>
                        </div>
                     </div>
@@ -167,6 +193,7 @@
 
         const imageInput = document.getElementById('imageInput');
         const imagePreview = document.getElementById('imagePreview');
+        const imagePreview1 = document.getElementById('imagePreview1');
 
         imageInput.addEventListener('change', function () {
             const file = this.files[0];
@@ -176,7 +203,10 @@
 
                 reader.onload = function (e) {
                     imagePreview.src = e.target.result;
+                    imagePreview1.src = e.target.result;
                     imagePreview.style.display = 'block';
+                    imagePreview1.style.display = 'block';
+                    document.getElementById('imagename').innerText=file.name
                 };
 
                 reader.readAsDataURL(file);
