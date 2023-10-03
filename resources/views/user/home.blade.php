@@ -141,8 +141,18 @@
                                 <input type="file" id="imageInput" accept="image/*" style="display:none">
                                 <br>
                                 <br>
-                                <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style=" max-width: 100%; max-height: 200px;">
-
+                                <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style="width: 100%;">
+                                <br><br>
+                                <div id="chips-container">
+                                    <input type="text" id="text-input" class="chip-input" placeholder="Enter text and press Enter">
+                                    <i class="fa-regular fa-circle-question" title="You can place by typing here.
+To add multiple hash tag press enter after a tag.
+To remove a tag click on that tag"></i>
+                                </div>
+                                <br>
+                            <div class="button">
+                                Post
+                            </div>
                             </div>
                             <div class="preview">
                                 <h2>Post Preview</h2>
@@ -217,6 +227,28 @@
         });
 
 
+    </script>
+    <script>
+        const chipsContainer = document.getElementById('chips-container');
+        const textInput = document.getElementById('text-input');
+
+        textInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && textInput.value.trim() !== '') {
+                createChip(textInput.value.trim());
+                textInput.value = '';
+            }
+        });
+
+        function createChip(text) {
+            const chip = document.createElement('div');
+            chip.classList.add('chip');
+            chip.textContent = "#"+text;
+            chipsContainer.appendChild(chip);
+
+            chip.addEventListener('click', function() {
+                chip.remove();
+            });
+        }
     </script>
                                                                                                                                                                                                                       
 </body>

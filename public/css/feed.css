@@ -34,6 +34,32 @@
     display: inline-block;
 }
 
+.chip {
+    display: inline-block;
+    background-color: #8858db;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chip-input{
+    width: 80%;
+    border: none;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 15px;
+    outline: none;
+    color: #9DBFAF;
+    background-color: #eeeeee
+}
+
+#discriptionpreview{
+    font-size:11px !important;
+}
+
 .middle .feedDiv .statuscontainer .ostatus{
     margin-left: 10px;
 }
