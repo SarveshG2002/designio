@@ -129,6 +129,24 @@
                              </div>
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <div class="statuscontainer newfeedcreator">
+                       <div class="imagecontent">
+                            <div class="inputFile" onclick="document.getElementById('imageInput').click()">
+                                <div class="button">Upload Image</div>
+                                <div class="imagename">
+                                    test.jpg
+                                </div>
+                                <input type="file" id="imageInput" accept="image/*" style="display:none">
+                                <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; max-height: 200px;">
+
+                            </div>
+                            <div class="preview">
+                                
+                            </div>
+                       </div>
+                    </div>
                 </div>
             </div>
             <div class="rightbar">
@@ -146,6 +164,29 @@
             document.getElementById("allFeedDiv").style.display="none"
             document.getElementById("newFeedDiv").style.display="block"
         }
+
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = '';
+                imagePreview.style.display = 'none';
+            }
+        });
+
+
     </script>
                                                                                                                                                                                                                       
 </body>

@@ -1,3 +1,9 @@
+*{
+    font-family: 'AR One Sans', sans-serif;
+    font-family: 'Croissant One', cursive;
+    font-family: 'Rubik', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
 .middle{
     /* background-color: aquamarine; */
 }
@@ -77,11 +83,37 @@
 }
 
 
+.middle .newFeedDiv .newfeedcreator .imagecontent{
+    
+    display: grid;
+    grid-template-columns: 40% auto;
+}
+.middle .newFeedDiv .newfeedcreator .imagecontent .button{
+    width: fit-content;
+    padding: 10px;
+    background-color: #8858db;
+    color: white;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.middle .newFeedDiv .newfeedcreator .imagecontent .imagename{
+    border-width: 0px 0px 0.5px 0px;
+    /* border-style: ridge; */
+    border-color: #8858db;
+    width: auto;
+    display: inline-block;
+}
 
 .middle .feedDiv .statuscontainer .todaystatus img{
     height: 100%;
     border-radius: 50%;
 }
+
+
+
+
+
 
 .middle .feedDiv .feedcontainer{
     width: 100%;
