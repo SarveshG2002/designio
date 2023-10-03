@@ -115,6 +115,9 @@
                         ?>
                     </div>
                 </div>
+                <form action="">
+
+               
                 <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
                     <div class="statuscontainer">
                         <div class="post_something">
@@ -133,7 +136,7 @@
                     <br>
                     <div class="statuscontainer newfeedcreator">
                        <div class="imagecontent">
-                            <div class="inputFile" >
+                            <div class="inputFile">
                                 <div class="button" style="cursor:pointer" onclick="document.getElementById('imageInput').click()">Upload Image</div>
                                 <div class="imagename" id="imagename">
                                     
@@ -145,8 +148,8 @@
                                 <br><br>
                                 <div id="chips-container">
                                     <input type="text" id="text-input" class="chip-input" placeholder="Enter text and press Enter">
-                                    <i class="fa-regular fa-circle-question" title="You can place by typing here.
-To add multiple hash tag press enter after a tag.
+                                    <i class="fa-regular fa-circle-question" title="You can place hashtag by typing here.
+To add multiple hashtags press enter after a tag.
 To remove a tag click on that tag"></i>
                                 </div>
                                 <br>
@@ -184,6 +187,7 @@ To remove a tag click on that tag"></i>
                        </div>
                     </div>
                 </div>
+            </form>
             </div>
             <div class="rightbar">
                 right bar
@@ -233,7 +237,9 @@ To remove a tag click on that tag"></i>
         const textInput = document.getElementById('text-input');
 
         textInput.addEventListener('keydown', function(event) {
+            
             if (event.key === 'Enter' && textInput.value.trim() !== '') {
+                event.preventDefault();
                 createChip(textInput.value.trim());
                 textInput.value = '';
             }
