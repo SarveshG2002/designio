@@ -115,8 +115,8 @@
                         ?>
                     </div>
                 </div>
-                <form action="">
-
+                <form action="/addpost" method="POST" id="addnepostform">
+                    @csrf
                
                 <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
                     <div class="statuscontainer">
@@ -127,7 +127,7 @@
                             <div class="wrap">
                                 <div class="comment">
                                    {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
-                                   <textarea oninput="document.getElementById('discriptionpreview').innerHTML=this.value" name="" class="commentTerm" id="" cols="30" rows="5" placeholder="Write your post"></textarea>
+                                   <textarea oninput="document.getElementById('discriptionpreview').innerHTML=this.value" name="discription" class="commentTerm" id="postdesc" cols="30" rows="5" placeholder="Write your post"></textarea>
                                 </div>
                              </div>
                         </div>
@@ -141,7 +141,7 @@
                                 <div class="imagename" id="imagename">
                                     
                                 </div>
-                                <input type="file" id="imageInput" accept="image/*" style="display:none">
+                                <input type="file" id="imageInput" accept="image/*" name="postImage" style="display:none">
                                 <br>
                                 <br>
                                 <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style="width: 100%;">
@@ -153,7 +153,7 @@ To add multiple hashtags press enter after a tag.
 To remove a tag click on that tag"></i>
                                 </div>
                                 <br>
-                            <div class="button">
+                            <div class="button" onclick="submitForm()">
                                 Post
                             </div>
                             </div>
@@ -231,10 +231,9 @@ To remove a tag click on that tag"></i>
         });
 
 
-    </script>
-    <script>
         const chipsContainer = document.getElementById('chips-container');
         const textInput = document.getElementById('text-input');
+        const postdesc = document.getElementById('postdesc');
 
         textInput.addEventListener('keydown', function(event) {
             
@@ -242,6 +241,13 @@ To remove a tag click on that tag"></i>
                 event.preventDefault();
                 createChip(textInput.value.trim());
                 textInput.value = '';
+            }
+        });
+
+        postdesc.addEventListener('keydown', function(event) {
+            
+            if (event.key === 'Enter' && textInput.value.trim() !== '') {
+                event.preventDefault();
             }
         });
 
@@ -254,6 +260,25 @@ To remove a tag click on that tag"></i>
             chip.addEventListener('click', function() {
                 chip.remove();
             });
+        }
+
+        function submitForm() {
+            // Collect chip values
+            const chips = Array.from(chipsContainer.querySelectorAll('.chip'))
+                .map(chip => chip.textContent.replace('#', '')); // Remove '#' prefix
+
+            // Add chips as hidden input fields to the form
+            const form = document.querySelector('form');
+            chips.forEach(chip => {
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'chips[]'; // Use an array for multiple values
+                hiddenInput.value = chip;
+                form.appendChild(hiddenInput);
+            });
+
+            // Submit the form
+            form.submit();
         }
     </script>
                                                                                                                                                                                                                       

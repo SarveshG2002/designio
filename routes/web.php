@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 // use App\Http\Middleware\CheckUserSession;
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ Route::middleware(['check.session'])->group(function () {
     Route::get('/group', [AuthController::class, 'group']);
     Route::get('/trending', [AuthController::class, 'trending']);
     Route::get('/setting', [AuthController::class, 'setting']);
+    
+
+    Route::post('/addpost', [PostController::class, 'addNewPost']);
 });
 
 
