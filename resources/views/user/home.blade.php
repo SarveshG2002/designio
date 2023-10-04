@@ -115,7 +115,7 @@
                         ?>
                     </div>
                 </div>
-                <form action="/addpost" method="POST" id="addnepostform">
+                <form action="/addpost" method="POST" id="addnepostform" enctype="multipart/form-data">
                     @csrf
                
                 <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
