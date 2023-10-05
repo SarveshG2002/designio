@@ -281,6 +281,18 @@ To remove a tag click on that tag"></i>
             form.submit();
         }
     </script>
+
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if (session('error'))
+<div class="alert alert-success">
+    {{ session('error') }}
+</div>
+@endif
                                                                                                                                                                                                                       
 </body>
 </html>

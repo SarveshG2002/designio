@@ -51,7 +51,7 @@
             }
 
         .search .searchTerm {
-            width: 100%;
+            width: 40%;
             border: none;
             border-right: none;
             padding: 5px;

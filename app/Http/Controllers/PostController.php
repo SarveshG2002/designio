@@ -49,8 +49,12 @@ class PostController extends Controller
         // Save the post data to the database
         $post->save();
 
-        // Redirect the user to the home page with a success message
-        return redirect('/home')->with('success', 'Post added successfully.');
+        // Set the success message in the session
+        session()->flash('success', 'Post added successfully.');
+        
+        // Redirect the user to the home page
+        return redirect('/home');
     }
+
 
 }
