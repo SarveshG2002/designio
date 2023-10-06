@@ -46,12 +46,13 @@ class AuthController extends Controller
 
             if ($profile) {
                 // If a profile exists, store its data in sessions
-                
                 Session::put('id', $user->id);
                 Session::put('profile_picture', $profile->profile);
                 Session::put('email', $user->email);
                 Session::put('username', $profile->username);
                 Session::put('status', 'complete');
+                Session::put('profileimg',$profile->profile);
+                Session::put('name',$user->name);
                 return redirect()->intended('/home');
             } else {
                 // Handle the case where the user has no profile data

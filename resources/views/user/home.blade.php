@@ -9,6 +9,7 @@
             <div class="sidebar">
                 @include('includes.sidebar',['page'=>'feed'])
                 {{-- hello --}}
+               
             </div>
             <div class="middle">
                 <div class="feedDiv" id="allFeedDiv">
@@ -29,6 +30,9 @@
                         </div>
                         <div class="statuscontainer">
                             <div class="post_something">
+                                {{-- @php
+                                print_r(session()->all())
+                            @endphp --}}
                                 Post Something
                             </div>
                             <div class="newpost" style="margin-top:10px">

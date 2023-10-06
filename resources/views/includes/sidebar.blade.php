@@ -6,10 +6,10 @@
             </div>
             <div class="username">
                 <div class="name">
-                    johny Dept
+                    {{ session('name') }}
                 </div>
                 <div class="profileuser">
-                    @iamjohnydept
+                    {{ "@".session('username') }}
                 </div>
             </div>
         </div>

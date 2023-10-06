@@ -11,8 +11,8 @@ use App\Models\User;
 class friendController extends Controller
 {
     public function getfriends(Request $request){
-        $users = User::all();
-        // return view('friends.index', ['users' => $users]);
+        // $currentUserId = Auth::id(); // Get the ID of the currently authenticated user
+        $users = User::where('id', '!=', session('id'))->get(); // Exclude the current user
         return $users;
     }
 }
