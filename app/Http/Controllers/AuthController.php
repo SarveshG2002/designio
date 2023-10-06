@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Profile;
 use App\Http\Controllers\friendController;
+use Laravel\Sanctum\PersonalAccessToken;
+
 
 
 class AuthController extends Controller
@@ -36,38 +38,44 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
+{
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed, retrieve additional data from the profiles table
-            $user = Auth::user(); // Get the authenticated user instance
-            $profile = Profile::where('user_id', $user->id)->first(); // Retrieve the user's profile
+    if (Auth::attempt($credentials)) {
+        // Authentication passed, retrieve additional data from the profiles table
+        $user = Auth::user(); // Get the authenticated user instance
+        $profile = Profile::where('user_id', $user->id)->first(); // Retrieve the user's profile
 
-            if ($profile) {
-                // If a profile exists, store its data in sessions
-                Session::put('id', $user->id);
-                Session::put('profile_picture', $profile->profile);
-                Session::put('email', $user->email);
-                Session::put('username', $profile->username);
-                Session::put('status', 'complete');
-                Session::put('profileimg',$profile->profile);
-                Session::put('name',$user->name);
-                return redirect()->intended('/home');
-            } else {
-                // Handle the case where the user has no profile data
-                // You can set default values or handle it as needed
-                Session::put('status', 'profile_pending'); // Store status as "profile_pending"
-                Session::put('id', $user->id);
-                return redirect()->intended('/profile');
-            }
+        if ($profile) {
+            // If a profile exists, store its data in sessions
+            Session::put('id', $user->id);
+            Session::put('profile_picture', $profile->profile);
+            Session::put('email', $user->email);
+            Session::put('username', $profile->username);
+            Session::put('status', 'complete');
+            Session::put('profileimg', $profile->profile);
+            Session::put('name', $user->name);
 
-            
+            // Generate a new bearer token
+            $token = $user->createToken('auth-token')->plainTextToken;
+
+            // Set the 'auth_token' cookie with the generated token
+            $response = redirect()->intended('/home')->cookie('auth_token', $token, 60 * 24 * 7);
+
+            return $response;
+        } else {
+            // Handle the case where the user has no profile data
+            // You can set default values or handle it as needed
+            Session::put('status', 'profile_pending'); // Store status as "profile_pending"
+            Session::put('id', $user->id);
+            return redirect()->intended('/profile');
         }
-
-        // Authentication failed, redirect back with an error message.
-        return back()->withErrors(['email' => 'Invalid credentials']);
     }
+
+    // Authentication failed, redirect back with an error message.
+    return back()->withErrors(['email' => 'Invalid credentials']);
+}
+
 
     public  function home(){
         // if (session()->has('status')) {

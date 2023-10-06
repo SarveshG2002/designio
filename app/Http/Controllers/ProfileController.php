@@ -73,10 +73,12 @@ class ProfileController extends Controller
         $user = Auth::user();
         $email = $user->email;
         Session::put('id', Auth::id());
-        Session::put('profile_picture', $profilePicturePath);
+        // Session::put('profile_picture', $profilePicturePath);
         Session::put('email', $email);
         Session::put('username',$request->input('username'));
         Session::put('status','complete');
+        Session::put('profileimg',$profilePicturePath);
+        Session::put('name',$user->name);
         // echo "profile saved";
         // die();
         // 4. Redirect to the home page

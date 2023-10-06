@@ -16,7 +16,7 @@
              </div>
         </div>
         <div class="col s2 logout">
-           <div>
+           <div style="cursor: pointer;" onclick="location.href='logout'">
              Logout
            </div>
         </div>

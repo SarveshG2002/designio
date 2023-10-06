@@ -15,4 +15,8 @@ class friendController extends Controller
         $users = User::where('id', '!=', session('id'))->get(); // Exclude the current user
         return $users;
     }
+
+    public function followFriend(Request $request){
+        echo "hello";
+    }
 }
