@@ -74,16 +74,32 @@
     width: 85%;
     padding: 10px;
     display: grid;
-    grid-template-columns: 90% auto;
+    grid-template-columns: 10% 80% auto;
     font-size: 13px;
-    margin: 0px auto;
+    border-radius: 20px;
+    margin: 10px auto;
+    background-color: #d8d8d8;
 }
 
 .friendList .flistdiv .fname .name{
     font-size: 30px;
 }
 
+.friendList .flistdiv .profileimg{
+    width: 100%;
+}
 
+.friendList .flistdiv .profileimg .img , img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.friendList .flistdiv .status .time{
+    height: 100%;
+    /* padding: 80px 0;
+  border: 3px solid green; */
+}
 
 
 

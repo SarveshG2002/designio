@@ -26,14 +26,19 @@
                             <div class="search">
                                <input type="text" class="searchTerm" placeholder="Search">
                                <button type="submit" class="searchButton">
-                                <span class="material-symbols-outlined">
-                                    search
+                                    <span class="material-symbols-outlined">
+                                        search
                                     </span>
                               </button>
                             </div>
                         </div>
                         <div class="friendList">
                             <div class="flistdiv">
+                                <div class="profileimg">
+                                    <div class="img">
+                                        <img src="default_profile.png" alt="">
+                                    </div>
+                                </div>
                                 <div class="fname">
                                     <div class="name">
                                         Virat Kohli
@@ -44,10 +49,10 @@
                                 </div>
                                 <div class="status">
                                     <div class="date">
-                                        22-7-2023
+                                        <p style="margin-top: 10px">22-7-2023</p>
                                     </div>
                                     <div class="time">
-                                        02:07 pm
+                                        <p style="margin-top: 10px">2:03 pm</p>
                                     </div>
                                 </div>
                             </div>
