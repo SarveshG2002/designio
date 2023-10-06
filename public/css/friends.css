@@ -100,7 +100,15 @@
     /* padding: 80px 0;
   border: 3px solid green; */
 }
-
+.friendList .flistdiv .status button{
+    text-align: center;
+    margin-top: 10px;
+    background-color: #673ab7;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    width: 80%;
+}
 
 
 
