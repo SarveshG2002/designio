@@ -10,12 +10,13 @@
                 @include('includes.sidebar',['page'=>'friends'])
                 {{-- hello --}}
             </div>
-
+            
             <div class="middle">
                 <div class="feedDiv" id="allFeedDiv">
                     <div class="statuscontainer">
                         <div class="post_something">
                             Friends
+                            
                         </div>
                         
                     </div>
@@ -33,30 +34,33 @@
                             </div>
                         </div>
                         <div class="friendList">
-                            <div class="flistdiv">
-                                <div class="profileimg">
-                                    <div class="img">
-                                        <img src="default_profile.png" alt="">
+                            @foreach ($friends as $key => $friend)
+                                <div class="flistdiv">
+                                    <div class="profileimg">
+                                        <div class="img">
+                                            <img src="default_profile.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="fname">
+                                        <div class="name">
+                                            {{ $friend->name }} {{-- Assuming 'name' is the property you want to display --}}
+                                        </div>
+                                        <div class="msg">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, recusandae laborum error quam dolor laboriosam a velit perferendis voluptates itaque unde ut in expedita necessitatibus. Id tenetur similique consequatur saepe. {{-- Assuming 'message' is the property you want to display --}}
+                                        </div>
+                                    </div>
+                                    <div class="status">
+                                        <div class="date">
+                                            <p style="margin-top: 10px">23-03-2022</p> {{-- Assuming 'date' is the property you want to display --}}
+                                        </div>
+                                        <div class="time">
+                                            <p style="margin-top: 10px">04:8 pm</p> {{-- Assuming 'time' is the property you want to display --}}
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="fname">
-                                    <div class="name">
-                                        Virat Kohli
-                                    </div>
-                                    <div class="msg">
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem facere fugit neque, quidem perspiciatis, 
-                                    </div>
-                                </div>
-                                <div class="status">
-                                    <div class="date">
-                                        <p style="margin-top: 10px">22-7-2023</p>
-                                    </div>
-                                    <div class="time">
-                                        <p style="margin-top: 10px">2:03 pm</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                        
                     </div>
                 </div>
             </div>

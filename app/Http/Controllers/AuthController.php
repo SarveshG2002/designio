@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Profile;
+use App\Http\Controllers\friendController;
+
 
 class AuthController extends Controller
 {
@@ -149,8 +151,10 @@ class AuthController extends Controller
     public function explore(){
         return view('user.explore');
     }
-    public function friends(){
-        return view('user.friends');
+    public function friends(Request $request){
+        $friendController = new friendController();
+        $friends=$friendController->getfriends($request);
+        return view('user.friends',['friends'=>$friends]);
     }
     public function group(){
         return view('user.groups');
