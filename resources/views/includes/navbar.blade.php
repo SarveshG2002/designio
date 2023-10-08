@@ -22,3 +22,7 @@
         </div>
     </div>
 </div>
+
+<form action="" >
+    <input type="hidden" id="tok" value="{{session('authentication')}}">
+</form>

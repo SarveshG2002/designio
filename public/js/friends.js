@@ -9,7 +9,10 @@ function getCookie(name) {
     return null;
 }
 
+
+
 function followme(id) {
+    
     const authToken = getCookie('XSRF-TOKEN');
 
     // Check if the auth_token cookie is present
@@ -22,11 +25,10 @@ function followme(id) {
     $.ajax({
         type: 'POST',
         url: '/api/friend/followfriend',
-        data : {fid:id}, 
-        dataType: 'json',
+        // dataType: 'json',
         headers: {
             // Set the Authorization header with the bearer token
-            Authorization: 'Bearer ' + authToken,
+            Authorization: 'Bearer ' + document.getElementById('tok').value,
         },
         success: function (data) {
             // Request was successful
@@ -37,5 +39,5 @@ function followme(id) {
             // Request failed
             console.error('Follow request failed');
         },
-    });
+    })
 }

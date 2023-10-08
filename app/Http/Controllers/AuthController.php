@@ -58,9 +58,9 @@ class AuthController extends Controller
 
             // Generate a new bearer token
             $token = $user->createToken('auth-token')->plainTextToken;
-
+            Session::put('authentication',$token);
             // Set the 'auth_token' cookie with the generated token
-            $response = redirect()->intended('/home')->cookie('auth_token', $token, 60 * 24 * 7);
+            $response = redirect()->intended('/home')->cookie('auth_token', $token, 60*24*7);
 
             return $response;
         } else {

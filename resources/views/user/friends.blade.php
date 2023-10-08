@@ -16,7 +16,6 @@
                     <div class="statuscontainer">
                         <div class="post_something">
                             Friends
-                            
                         </div>
                         
                     </div>

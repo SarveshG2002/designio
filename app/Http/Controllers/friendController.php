@@ -17,6 +17,6 @@ class friendController extends Controller
     }
 
     public function followFriend(Request $request){
-        echo "hello";
+        echo "hello my friend";
     }
 }
