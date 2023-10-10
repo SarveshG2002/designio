@@ -32,6 +32,13 @@ function followme(id) {
         },
         success: function (data) {
             // Request was successful
+            if(data.message == "Followed successfully"){
+                document.getElementById('reqbut'+id).textContent="Followed"
+                document.getElementById('reqbut'+id).style.backgroundColor = "Grey"
+            }else if(data.message == "Unfollowed successfully"){
+                document.getElementById('reqbut'+id).textContent="Follow"
+                document.getElementById('reqbut'+id).style.backgroundColor = "#673ab7"
+            }
             console.log('Follow request sent successfully',data);
             // You can perform further actions here if needed
         },

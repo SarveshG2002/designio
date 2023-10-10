@@ -24,7 +24,7 @@ class friendController extends Controller
             ->where('users.id', '!=', $currentUserId)
             ->inRandomOrder() // Get random order of friends
             // ->limit(10) // Adjust the limit as needed
-            ->get(['users.*', 'profiles.profile']);
+            ->get(['users.*', 'profiles.*']);
     
         return $friends;
     }

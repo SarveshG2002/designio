@@ -55,7 +55,7 @@
                                             {{ $friend->name }} {{-- Assuming 'name' is the property you want to display --}}
                                         </div>
                                         <div class="msg">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, recusandae laborum error quam dolor laboriosam a velit perferendis voluptates itaque unde ut in expedita necessitatibus. Id tenetur similique consequatur saepe. {{-- Assuming 'message' is the property you want to display --}}
+                                            {{ $friend->bio }}
                                         </div>
                                     </div>
                                     <div class="status" style="padding-left:10px">
@@ -63,7 +63,7 @@
                                             <p style="margin-top: 10px">23-03-2022</p> {{-- Assuming 'date' is the property you want to display --}}
                                         </div>
                                         <div class="time">
-                                            <button onclick="followme('{{ $friend->id }}')">
+                                            <button id="reqbut{{ $friend->id }}" onclick="followme('{{ $friend->id }}')">
                                                 Follow
                                             </button> {{-- Assuming 'time' is the property you want to display --}}
                                         </div>
