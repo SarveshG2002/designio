@@ -2,7 +2,15 @@
     <div class="myprofile">
         <div class="profile">
             <div class="img">
-                <img src="default_profile.png" alt="">
+                @php
+                    $profileImg = session('profileimg');
+                @endphp
+
+                @if($profileImg !== null)
+                    <img src="{{ asset('storage/' . $profileImg) }}" alt="Profile Image">
+                @else
+                    <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                @endif
             </div>
             <div class="username">
                 <div class="name">
