@@ -17,7 +17,7 @@
             
         <form class="col s12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
+        {{-- @method('PUT') --}}
             <div class="row">
 
                 <div class="input-field col s6">
@@ -62,10 +62,10 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>File</span>
-                            <input type="file">
+                            <input type="file" name="profile_picture">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input class="file-path validate"  type="text">
                         </div>
                     </div>
                     @error('profile_picture')
@@ -134,5 +134,15 @@
     var instances = M.FormSelect.init(elems);
   });
     </script>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 </body>
 </html>

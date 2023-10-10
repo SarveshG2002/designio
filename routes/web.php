@@ -26,10 +26,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::get('/profile', [AuthController::class, 'showProfileForm']);
-
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::middleware(['check.session'])->group(function () {
-    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+    
     Route::get('/home', [AuthController::class, 'home']);
     Route::get('/explore', [AuthController::class, 'explore']);
     Route::get('/friends', [AuthController::class, 'friends']);
@@ -41,6 +41,6 @@ Route::middleware(['check.session'])->group(function () {
 
 
 
-Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 // Add more authentication routes (password reset, logout, etc.) as needed.
