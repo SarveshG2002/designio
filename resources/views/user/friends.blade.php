@@ -32,12 +32,22 @@
                               </button>
                             </div>
                         </div>
-                        <div class="friendList">
+                        <div class="friendList" style="height: 80vh;overflow-x:auto">
+                            
                             @foreach ($friends as $key => $friend)
                                 <div class="flistdiv">
                                     <div class="profileimg">
                                         <div class="img">
-                                            <img src="default_profile.png" alt="">
+                                            @php
+                                            $profileImg =  $friend->profile;
+                                            @endphp
+                            
+                                            @if($profileImg !== null)
+                                                <img src="{{ asset('storage/' . $profileImg) }}" alt="Profile Image">
+                                            @else
+                                                <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                                            @endif
+                                            {{-- <img src="default_profile.png" alt=""> --}}
                                         </div>
                                     </div>
                                     <div class="fname">

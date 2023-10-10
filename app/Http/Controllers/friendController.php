@@ -14,10 +14,19 @@ use Illuminate\Support\Facades\Auth;
 
 class friendController extends Controller
 {
-    public function getfriends(Request $request){
-        // $currentUserId = Auth::id(); // Get the ID of the currently authenticated user
-        $users = User::where('id', '!=', session('id'))->get(); // Exclude the current user
-        return $users;
+    public function getfriends(Request $request)
+    {
+        // Get the ID of the currently authenticated user
+        $currentUserId = session('id');
+    
+        // Retrieve random friends (excluding the current user)
+        $friends = User::join('profiles', 'users.id', '=', 'profiles.user_id')
+            ->where('users.id', '!=', $currentUserId)
+            ->inRandomOrder() // Get random order of friends
+            // ->limit(10) // Adjust the limit as needed
+            ->get(['users.*', 'profiles.profile']);
+    
+        return $friends;
     }
 
     // use Illuminate\Support\Facades\DB;
