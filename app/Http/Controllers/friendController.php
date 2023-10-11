@@ -23,15 +23,15 @@ class friendController extends Controller
         $following = User::join('profiles', 'users.id', '=', 'profiles.user_id')
             ->join('followers', 'users.id', '=', 'followers.followed_user_id')
             ->where('followers.user_id', $currentUserId)
-            ->get(['users.*', 'profiles.*']);
+            ->get(['users.*', 'profiles.bio','profiles.profile']);
 
         // Retrieve users you don't follow
         $usersNotFollowed = User::select('users.*', 'profiles.bio', 'profiles.profile')
-    ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-    ->leftJoin('followers', 'users.id', '=', 'followers.followed_user_id')
-    ->whereNull('followers.user_id')
-    ->where('users.id', '<>', 5)
-    ->get();
+        ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+        ->leftJoin('followers', 'users.id', '=', 'followers.followed_user_id')
+        ->whereNull('followers.user_id')
+        ->where('users.id', '<>', 5)
+        ->get();
 
 
 

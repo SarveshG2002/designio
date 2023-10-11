@@ -179,6 +179,12 @@ class AuthController extends Controller
         //     print_r($f->getAttributes());
         //     echo "<br>";
         // }
+        // echo "<br>";
+        // echo "<br>";
+        // foreach($friends['notFollowing'] as $f){
+        //     print_r($f->getAttributes());
+        //     echo "<br>";
+        // }
         return view('user.friends',$friends);
     }
     public function group(){
