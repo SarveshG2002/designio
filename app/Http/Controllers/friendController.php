@@ -14,20 +14,33 @@ use Illuminate\Support\Facades\Auth;
 
 class friendController extends Controller
 {
-    public function getfriends(Request $request)
+    public function getFriends(Request $request)
     {
         // Get the ID of the currently authenticated user
         $currentUserId = session('id');
-    
-        // Retrieve random friends (excluding the current user)
-        $friends = User::join('profiles', 'users.id', '=', 'profiles.user_id')
-            ->where('users.id', '!=', $currentUserId)
-            ->inRandomOrder() // Get random order of friends
-            // ->limit(10) // Adjust the limit as needed
+
+        // Retrieve users you follow
+        $following = User::join('profiles', 'users.id', '=', 'profiles.user_id')
+            ->join('followers', 'users.id', '=', 'followers.followed_user_id')
+            ->where('followers.user_id', $currentUserId)
             ->get(['users.*', 'profiles.*']);
-    
-        return $friends;
+
+        // Retrieve users you don't follow
+        $usersNotFollowed = User::select('users.*', 'profiles.bio', 'profiles.profile')
+    ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+    ->leftJoin('followers', 'users.id', '=', 'followers.followed_user_id')
+    ->whereNull('followers.user_id')
+    ->where('users.id', '<>', 5)
+    ->get();
+
+
+
+        return [
+            'following' => $following,
+            'notFollowing' => $usersNotFollowed,
+        ];
     }
+
 
     // use Illuminate\Support\Facades\DB;
 

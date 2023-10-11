@@ -174,7 +174,12 @@ class AuthController extends Controller
     public function friends(Request $request){
         $friendController = new friendController();
         $friends=$friendController->getfriends($request);
-        return view('user.friends',['friends'=>$friends]);
+        // echo "<pre>";
+        // foreach($friends['following'] as $f){
+        //     print_r($f->getAttributes());
+        //     echo "<br>";
+        // }
+        return view('user.friends',$friends);
     }
     public function group(){
         return view('user.groups');

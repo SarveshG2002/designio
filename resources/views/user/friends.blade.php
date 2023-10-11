@@ -34,7 +34,7 @@
                         </div>
                         <div class="friendList" style="height: 80vh;overflow-x:auto">
                             
-                            @foreach ($friends as $key => $friend)
+                            @foreach ($notFollowing as $key => $friend)
                                 <div class="flistdiv">
                                     <div class="profileimg">
                                         <div class="img">
