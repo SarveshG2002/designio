@@ -52,6 +52,7 @@
                     
                     <div class="feedcontainer">
                         <?php
+                        print_r($posts);
                             $feeds=[1,2,3,4];
                             foreach($feeds as $feed){
                                 ?>
@@ -122,76 +123,76 @@
                 <form action="post/addpost" method="POST" id="addnepostform" enctype="multipart/form-data">
                     @csrf
                
-                <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
-                    <div class="statuscontainer">
-                        <div class="post_something">
-                            Post Something
-                        </div>
-                        <div class="newpost" style="margin-top:10px">
-                            <div class="wrap">
-                                <div class="comment">
-                                   {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
-                                   <textarea oninput="document.getElementById('discriptionpreview').innerHTML=this.value" name="discription" class="commentTerm" id="postdesc" cols="30" rows="5" placeholder="Write your post"></textarea>
-                                </div>
-                             </div>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="statuscontainer newfeedcreator">
-                       <div class="imagecontent">
-                            <div class="inputFile">
-                                <div class="button" style="cursor:pointer" onclick="document.getElementById('imageInput').click()">Upload Image</div>
-                                <div class="imagename" id="imagename">
-                                    
-                                </div>
-                                <input type="file" id="imageInput" accept="image/*" name="postImage" style="display:none">
-                                <br>
-                                <br>
-                                <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style="width: 100%;">
-                                <br><br>
-                                <div id="chips-container">
-                                    <input type="text" id="text-input" class="chip-input" placeholder="Enter text and press Enter">
-                                    <i class="fa-regular fa-circle-question" title="You can place hashtag by typing here.
-To add multiple hashtags press enter after a tag.
-To remove a tag click on that tag"></i>
-                                </div>
-                                <br>
-                            <div class="button" onclick="submitForm()">
-                                Post
+                    <div class="feedDiv newFeedDiv" id="newFeedDiv" style="display:none">
+                        <div class="statuscontainer">
+                            <div class="post_something">
+                                Post Something
                             </div>
-                            </div>
-                            <div class="preview">
-                                <h2>Post Preview</h2>
-                                <div class="feedcontainer" style="margin-top: 5px">
-                                    <div class="feed" style="padding-top:5px">
-                                        <div class="userinfo">
-                                            <div class="userprofile">
-                                                <img src="default_profile.png" alt="">
-                                            </div>
-                                            <div class="username">
-                                                <div>
-                                                    sarwya_not_available
-                                                    <div class="time" style="font-size: 10px;">
-                                                        2 days ago
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="discription" id="discriptionpreview" style="white-space: pre-wrap;">
-                                        </div>
-                                        <div class="artwork">
-                                            <img src="test-feed2.jpg" id="imagePreview1"  alt="">
-                                        </div>
-                                        
+                            <div class="newpost" style="margin-top:10px">
+                                <div class="wrap">
+                                    <div class="comment">
+                                    {{-- <input type="text" class="commentTerm" placeholder="Write here"> --}}
+                                    <textarea oninput="document.getElementById('discriptionpreview').innerHTML=this.value" name="discription" class="commentTerm" id="postdesc" cols="30" rows="5" placeholder="Write your post"></textarea>
                                     </div>
                                 </div>
                             </div>
-                       </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="statuscontainer newfeedcreator">
+                        <div class="imagecontent">
+                                <div class="inputFile">
+                                    <div class="button" style="cursor:pointer" onclick="document.getElementById('imageInput').click()">Upload Image</div>
+                                    <div class="imagename" id="imagename">
+                                        
+                                    </div>
+                                    <input type="file" id="imageInput" accept="image/*" name="postImage" style="display:none">
+                                    <br>
+                                    <br>
+                                    <img id="imagePreview" src="test-feed2.jpg" alt="Image Preview" style="width: 100%;">
+                                    <br><br>
+                                    <div id="chips-container">
+                                        <input type="text" id="text-input" class="chip-input" placeholder="Enter text and press Enter">
+                                        <i class="fa-regular fa-circle-question" title="You can place hashtag by typing here.
+    To add multiple hashtags press enter after a tag.
+    To remove a tag click on that tag"></i>
+                                    </div>
+                                    <br>
+                                <div class="button" onclick="submitForm()">
+                                    Post
+                                </div>
+                                </div>
+                                <div class="preview">
+                                    <h2>Post Preview</h2>
+                                    <div class="feedcontainer" style="margin-top: 5px">
+                                        <div class="feed" style="padding-top:5px">
+                                            <div class="userinfo">
+                                                <div class="userprofile">
+                                                    <img src="default_profile.png" alt="">
+                                                </div>
+                                                <div class="username">
+                                                    <div>
+                                                        sarwya_not_available
+                                                        <div class="time" style="font-size: 10px;">
+                                                            2 days ago
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="discription" id="discriptionpreview" style="white-space: pre-wrap;">
+                                            </div>
+                                            <div class="artwork">
+                                                <img src="test-feed2.jpg" id="imagePreview1"  alt="">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
             </div>
             <div class="rightbar">
                 right bar
@@ -272,7 +273,7 @@ To remove a tag click on that tag"></i>
                 .map(chip => chip.textContent.replace('#', '')); // Remove '#' prefix
 
             // Add chips as hidden input fields to the form
-            const form = document.querySelector('form');
+            const form = document.querySelector('#addnepostform');
             chips.forEach(chip => {
                 const hiddenInput = document.createElement('input');
                 hiddenInput.type = 'hidden';
@@ -293,6 +294,9 @@ To remove a tag click on that tag"></i>
 @endif
 
 @if (session('error'))
+<script>
+    console.log("{{ json_encode(session('error')) }}")
+</script>
 <div class="alert alert-success">
     {{ session('error') }}
 </div>

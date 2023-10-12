@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Profile;
 use App\Http\Controllers\friendController;
 use Laravel\Sanctum\PersonalAccessToken;
+use App\Http\Controllers\PostController;
 
 
 
@@ -102,7 +103,9 @@ class AuthController extends Controller
     
         // // If no 'status' session or 'status' is not profile_pending or complete, show the login form
         // return redirect('login');
-        return view('user.home');
+        $postController = new PostController();
+        $posts=$postController->getPosts(); 
+        return view('user.home',['posts'=>$posts]);
         
     }
 
