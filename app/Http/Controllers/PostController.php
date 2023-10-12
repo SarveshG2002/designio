@@ -59,22 +59,13 @@ class PostController extends Controller
 
     public function getPosts() {
         // Get the user's friends if they are not null
-        $user = auth()->user();
-        $friends = $user->friends;
-    
-        if ($friends) {
-            // Get the IDs of your friends
-            $friendIds = $friends->pluck('id');
-    
-            // Get the posts of your friends ordered by date (newest first)
-            $friendPosts = Post::whereIn('user_id', $friendIds)
-                ->latest('created_at')
-                ->get();
-    
-            return $friendPosts;
-        }
-    
-        return [];
+        $userId = session('id'); // Change this to the desired user's ID
+        $posts = Post::select('posts.*', 'profiles.username')
+            ->leftJoin('followers', 'followers.followed_user_id', '=', 'posts.uid')
+            ->leftJoin('profiles', 'posts.uid', '=', 'profiles.user_id')
+            ->where('followers.user_id', $userId)
+            ->get();
+            return $posts;
     }
     
     

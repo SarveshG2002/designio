@@ -1,3 +1,34 @@
+<?php
+function formatDate($date) {
+    $timestamp = strtotime($date); // Convert the provided date to a timestamp
+
+    // Get the current timestamp
+    $currentTimestamp = time();
+
+    // Calculate the time difference in seconds
+    $difference = $currentTimestamp - $timestamp;
+
+    if ($difference < 60) {
+        return "just now";
+    } elseif ($difference < 3600) {
+        $minutes = floor($difference / 60);
+        return "$minutes minute" . ($minutes > 1 ? 's' : '') . " ago";
+    } elseif ($difference < 86400) {
+        $hours = floor($difference / 3600);
+        return "$hours hour" . ($hours > 1 ? 's' : '') . " ago";
+    } elseif ($difference < 604800) {
+        $days = floor($difference / 86400);
+        return "$days day" . ($days > 1 ? 's' : '') . " ago";
+    } elseif ($difference < 2419200) {
+        $weeks = floor($difference / 604800);
+        return "$weeks week" . ($weeks > 1 ? 's' : '') . " ago";
+    } else {
+        $years = floor($difference / 2419200);
+        return "$years year" . ($years > 1 ? 's' : '') . " ago";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     @include('includes.layout-header')
@@ -52,9 +83,9 @@
                     
                     <div class="feedcontainer">
                         <?php
-                        print_r($posts);
+                        // print_r($posts);
                             $feeds=[1,2,3,4];
-                            foreach($feeds as $feed){
+                            foreach($posts as $feed){
                                 ?>
                                 <div class="feed">
                                     <div class="userinfo">
@@ -63,20 +94,20 @@
                                         </div>
                                         <div class="username">
                                             <div>
-                                                sarwya_not_available
+                                                {{ $feed['username'] }}
                                                 <div class="time" style="font-size: 10px;">
-                                                    2 days ago
+                                                    {{ formatDate($feed['created_at']) }}
                                                 </div>
                                             </div>
                                             
                                         </div>
                                     </div>
                                     <div class="discription">
-                                        {{-- <br> --}}
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere accusamus enim excepturi. Dolores, itaque eum corporis modi veniam repellendus sapiente distinctio incidunt quod perspiciatis amet vero, repellat hic magnam! Enim?
+                                        {{ $feed['discription'] }}
+                                        {{-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere accusamus enim excepturi. Dolores, itaque eum corporis modi veniam repellendus sapiente distinctio incidunt quod perspiciatis amet vero, repellat hic magnam! Enim? --}}
                                     </div>
                                     <div class="artwork">
-                                        <img src="test-feed{{$feed}}.jpg" alt="">
+                                        <img src="{{ asset('storage/' . $feed['img1']) }}" alt="">
                                         <br>
                                         <br>
                                         <hr>
