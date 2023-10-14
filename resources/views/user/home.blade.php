@@ -144,6 +144,7 @@ function formatDate($date) {
                                             </div>
                                          </div>
                                          <br>
+                                         {{ $feed['tags'] }}
                                     </div>
                                 </div>
                                 <?php
