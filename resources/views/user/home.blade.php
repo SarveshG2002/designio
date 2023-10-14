@@ -120,7 +120,7 @@ function formatDate($date) {
                                                 25 Comments
                                         </div>
                                         <div class="likes">
-                                            <div class="likeDiv" style="display:inline-block">
+                                            <div class="likeDiv" onclick="likeme({{$feed['id']}})" style="display:inline-block">
                                                 <i></i>
                                                 Like
                                               </div>
@@ -230,13 +230,16 @@ function formatDate($date) {
                 right bar
             </div>
         </div>     
-    </div>    
+    </div>  
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/like.js') }}"></script>
     <script>
-        $(function() {
-            $( ".likeDiv" ).click(function() {
-                $( "i,span" ).toggleClass( "press", 1000 );
-            });
-        });
+        // $(function() {
+        //     $( ".likeDiv" ).click(function() {
+        //         $( "i,span" ).toggleClass( "press", 1000 );
+        //     });
+        // });
         function toggletonewpost(){
             document.getElementById("allFeedDiv").style.display="none"
             document.getElementById("newFeedDiv").style.display="block"
@@ -318,6 +321,7 @@ function formatDate($date) {
             form.submit();
         }
     </script>
+    
 
 @if (session('success'))
 <div class="alert alert-success">

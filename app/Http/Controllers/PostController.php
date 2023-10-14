@@ -72,6 +72,11 @@ class PostController extends Controller
     
         return $posts;
     }
+
+
+    public function likepost(Request $request, $id){
+        return "id from controller".$id;
+    }
     
     
     
