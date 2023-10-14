@@ -24,11 +24,14 @@ class PostController extends Controller
             return back()->with('error', 'Please provide either a description or an image.');
         }
 
+        print_r($request->all());
+        // die();
+
         // Create a new Post model instance and fill it with validated data
         $post = new Post();
         $post->fill([
             'uid' => session('id'),
-            'discription' => $validatedData['discription'],
+            'description' => $validatedData['discription'],
             'tags' => implode(', ', $validatedData['chips'] ?? []),
             // Add other columns like 'uid', 'img1', etc., as needed
         ]);
@@ -58,15 +61,18 @@ class PostController extends Controller
 
 
     public function getPosts() {
-        // Get the user's friends if they are not null
         $userId = session('id'); // Change this to the desired user's ID
+    
         $posts = Post::select('posts.*', 'profiles.username')
             ->leftJoin('followers', 'followers.followed_user_id', '=', 'posts.uid')
             ->leftJoin('profiles', 'posts.uid', '=', 'profiles.user_id')
             ->where('followers.user_id', $userId)
+            ->orderBy('posts.created_at', 'desc') // Sort by the newest posts first
             ->get();
-            return $posts;
+    
+        return $posts;
     }
+    
     
     
 

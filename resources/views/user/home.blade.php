@@ -84,7 +84,7 @@ function formatDate($date) {
                     <div class="feedcontainer">
                         <?php
                         // print_r($posts);
-                            $feeds=[1,2,3,4];
+                            // $feeds=[1,2,3,4];
                             foreach($posts as $feed){
                                 ?>
                                 <div class="feed">
@@ -103,7 +103,7 @@ function formatDate($date) {
                                         </div>
                                     </div>
                                     <div class="discription">
-                                        {{ $feed['discription'] }}
+                                        {{ $feed['description'] }}
                                         {{-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere accusamus enim excepturi. Dolores, itaque eum corporis modi veniam repellendus sapiente distinctio incidunt quod perspiciatis amet vero, repellat hic magnam! Enim? --}}
                                     </div>
                                     <div class="artwork">

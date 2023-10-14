@@ -104,7 +104,10 @@ class AuthController extends Controller
         // // If no 'status' session or 'status' is not profile_pending or complete, show the login form
         // return redirect('login');
         $postController = new PostController();
-        $posts=$postController->getPosts(); 
+        $posts=$postController->getPosts();
+        // echo "<pre>";
+        // print_r($posts->toArray());
+        // echo "</pre>";
         return view('user.home',['posts'=>$posts]);
         
     }
