@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Models\Like;
+use Illuminate\Support\Facades\Log;
 
 
 class PostController extends Controller
@@ -74,9 +76,35 @@ class PostController extends Controller
     }
 
 
-    public function likepost(Request $request, $id){
-        return "id from controller".$id;
+    public function likepost(Request $request, $postId) {
+        try {
+            // Get the authenticated user's ID
+            $userId = $request->input('uid'); // You can replace this with your authentication logic
+        
+            // Check if the user has already liked the post
+            $existingLike = Like::where('user_id', $userId)->where('post_id', $postId)->first();
+    
+            if ($existingLike) {
+                // User has already liked the post, so delete the like
+                $existingLike->delete();
+                return response()->json(['message' => 'Post unliked successfully']);
+            } else {
+                // User has not liked the post, so create a new like
+                $newLike = new Like();
+                $newLike->user_id = $userId;
+                $newLike->post_id = $postId;
+                $newLike->save();
+        
+                return response()->json(['message' => session()->all()]);
+            }
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error($e);
+            return response()->json(['error' => "error occured"]);
+        }
     }
+ 
+    
     
     
     

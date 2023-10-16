@@ -120,7 +120,7 @@ function formatDate($date) {
                                                 25 Comments
                                         </div>
                                         <div class="likes">
-                                            <div class="likeDiv" onclick="likeme({{$feed['id']}})" style="display:inline-block">
+                                            <div class="likeDiv" onclick="likeme({{$feed['id']}},{{session('id')}})" style="display:inline-block">
                                                 <i></i>
                                                 Like
                                               </div>

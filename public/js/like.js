@@ -1,8 +1,9 @@
-function  likeme(id){
+function  likeme(id,uid){
     $.ajax({
         type: 'POST',
         url: '/api/post/likepost/'+id,
         // dataType: 'json',
+        data: {uid:uid},
         headers: {
             // Set the Authorization header with the bearer token
             Authorization: 'Bearer ' + document.getElementById('tok').value,
@@ -18,7 +19,11 @@ function  likeme(id){
             // }
             // console.log('Follow request sent successfully',data);
             // You can perform further actions here if needed
+            // if(data=="liked"){
+
+            // }
             console.log(data)
+            $( "i,span" ).toggleClass( "press", 1000 );
         },
         error: function (xhr, textStatus, errorThrown) {
             // Request failed
@@ -26,5 +31,5 @@ function  likeme(id){
         },
     })
     console.log("like id",id)
-    $( "i,span" ).toggleClass( "press", 1000 );
+   
 }
