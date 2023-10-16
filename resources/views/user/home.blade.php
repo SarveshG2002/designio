@@ -85,6 +85,7 @@ function formatDate($date) {
                         <?php
                         // print_r($posts);
                             // $feeds=[1,2,3,4];
+                            echo customHelper("data");
                             foreach($posts as $feed){
                                 ?>
                                 <div class="feed">
