@@ -83,10 +83,8 @@ function formatDate($date) {
                     
                     <div class="feedcontainer">
                         <?php
-                        // print_r($posts);
-                            // $feeds=[1,2,3,4];
-                            echo customHelper("data");
                             foreach($posts as $feed){
+                                $likedata=customHelperGetLikes($feed['id']);
                                 ?>
                                 <div class="feed">
                                     <div class="userinfo">
@@ -122,9 +120,9 @@ function formatDate($date) {
                                         </div>
                                         <div class="likes">
                                             <div class="likeDiv" onclick="likeme({{$feed['id']}},{{session('id')}})" style="display:inline-block">
-                                                <i></i>
-                                                Like
-                                              </div>
+                                                <p><i class="{{($likedata['user_has_liked'])?'press':''}}"></i></p>
+                                                <p>{{$likedata['likes']}} Like</p>
+                                            </div>
                                         </div>
                                         <div class="save" style="text-align:right;margin-right:50px">
                                             <i class="fa-regular fa-bookmark"></i> Save
