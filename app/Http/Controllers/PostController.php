@@ -87,7 +87,7 @@ class PostController extends Controller
             if ($existingLike) {
                 // User has already liked the post, so delete the like
                 $existingLike->delete();
-                return response()->json(['message' => 'Post unliked successfully']);
+                return response()->json(['message' => 'unliked']);
             } else {
                 // User has not liked the post, so create a new like
                 $newLike = new Like();
@@ -95,7 +95,7 @@ class PostController extends Controller
                 $newLike->post_id = $postId;
                 $newLike->save();
         
-                return response()->json(['message' => session()->all()]);
+                return response()->json(['message' => "liked"]);
             }
         } catch (\Exception $e) {
             // Log the error
