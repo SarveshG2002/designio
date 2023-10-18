@@ -83,41 +83,41 @@
                             @foreach ($notFollowing as $key => $friend)
 
                                 @if(!isFollowing(session('id'),$friend->id))
-                                <div class="flistdiv">
-                                    <div class="profileimg">
-                                        <div class="img">
-                                            @php
-                                            $profileImg =  $friend->profile;
-                                            @endphp
-                            
-                                            @if($profileImg !== null)
-                                                <img src="{{ asset('storage/' . $profileImg) }}" alt="Profile Image">
-                                            @else
-                                                <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                                            @endif
-                                            {{-- <img src="default_profile.png" alt=""> --}}
+                                    <div class="flistdiv">
+                                        <div class="profileimg">
+                                            <div class="img">
+                                                @php
+                                                $profileImg =  $friend->profile;
+                                                @endphp
+                                
+                                                @if($profileImg !== null)
+                                                    <img src="{{ asset('storage/' . $profileImg) }}" alt="Profile Image">
+                                                @else
+                                                    <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                                                @endif
+                                                {{-- <img src="default_profile.png" alt=""> --}}
+                                            </div>
                                         </div>
+                                        <div class="fname">
+                                            <div class="name">
+                                                {{ $friend->name }} {{-- Assuming 'name' is the property you want to display --}}
+                                            </div>
+                                            <div class="msg">
+                                                {{ $friend->bio }}
+                                            </div>
+                                        </div>
+                                        <div class="status" style="padding-left:10px">
+                                            <div class="date">
+                                                <p style="margin-top: 10px">23-03-2022</p> {{-- Assuming 'date' is the property you want to display --}}
+                                            </div>
+                                            <div class="time">
+                                                <button id="reqbut{{ $friend->id }}" onclick="followme('{{ $friend->id }}')">
+                                                    Follow
+                                                </button> {{-- Assuming 'time' is the property you want to display --}}
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                    <div class="fname">
-                                        <div class="name">
-                                            {{ $friend->name }} {{-- Assuming 'name' is the property you want to display --}}
-                                        </div>
-                                        <div class="msg">
-                                            {{ $friend->bio }}
-                                        </div>
-                                    </div>
-                                    <div class="status" style="padding-left:10px">
-                                        <div class="date">
-                                            <p style="margin-top: 10px">23-03-2022</p> {{-- Assuming 'date' is the property you want to display --}}
-                                        </div>
-                                        <div class="time">
-                                            <button id="reqbut{{ $friend->id }}" onclick="followme('{{ $friend->id }}')">
-                                                Follow
-                                            </button> {{-- Assuming 'time' is the property you want to display --}}
-                                        </div>
-                                    </div>
-                                    
-                                </div>
                                 @endif
                                
                             @endforeach
