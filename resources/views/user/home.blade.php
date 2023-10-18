@@ -83,13 +83,24 @@ function formatDate($date) {
                     
                     <div class="feedcontainer">
                         <?php
+                        // echo "<pre>";
+                        // print_r($posts);
+                        // die();
                             foreach($posts as $feed){
                                 $likedata=customHelperGetLikes($feed['id']);
                                 ?>
                                 <div class="feed">
                                     <div class="userinfo">
                                         <div class="userprofile">
-                                            <img src="default_profile.png" alt="">
+                                            @php
+                                            $profileImg =  $feed->profile;
+                                            @endphp
+                            
+                                            @if($profileImg !== null)
+                                                <img src="{{ asset('storage/' . $profileImg) }}" alt="Profile Image">
+                                            @else
+                                                <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                                            @endif
                                         </div>
                                         <div class="username">
                                             <div>
@@ -120,7 +131,7 @@ function formatDate($date) {
                                         </div>
                                         <div class="likes">
                                             <div class="likeDiv" onclick="likeme({{$feed['id']}},{{session('id')}})" style="display:inline-block">
-                                                <span><i class="{{($likedata['user_has_liked'])?'press':''}}"></i></span>
+                                                <span><i class="{{($likedata['user_has_liked'])?'press':''}}" id="mylikeicon{{$feed['id']}}"></i></span>
                                                 <span id="mylikecuunt{{$feed['id']}}">{{$likedata['likes']}}</span> Like
                                             </div>
                                         </div>

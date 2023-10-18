@@ -65,7 +65,7 @@ class PostController extends Controller
     public function getPosts() {
         $userId = session('id'); // Change this to the desired user's ID
     
-        $posts = Post::select('posts.*', 'profiles.username')
+        $posts = Post::select('posts.*', 'profiles.username','profiles.profile')
             ->leftJoin('followers', 'followers.followed_user_id', '=', 'posts.uid')
             ->leftJoin('profiles', 'posts.uid', '=', 'profiles.user_id')
             ->where('followers.user_id', $userId)

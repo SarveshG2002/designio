@@ -81,6 +81,8 @@
                             </div>
                             
                             @foreach ($notFollowing as $key => $friend)
+
+                                @if(!isFollowing(session('id'),$friend->id))
                                 <div class="flistdiv">
                                     <div class="profileimg">
                                         <div class="img">
@@ -116,6 +118,8 @@
                                     </div>
                                     
                                 </div>
+                                @endif
+                               
                             @endforeach
                         </div>
                         
