@@ -6,3 +6,15 @@
     margin: 10px auto;
     border-radius: 5px;
 }
+
+.explore-contentainer .options .option {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px;
+    background: #eeeeee;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
