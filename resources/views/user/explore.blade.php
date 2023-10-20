@@ -35,10 +35,27 @@
                             Music
                         </div>
                     </div>
+
                     <div class="feeds">
-                        
-                    </div>
+                        <div class="feed">
+                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                        </div>
+                        <div class="feed">
+                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                        </div>
+                        <div class="feed">
+                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                        </div>
+                        <div class="feed">
+                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                        </div>
+                        <div class="feed">
+                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
+                        </div>
                 </div>
+                    
+                </div>
+                
             </div>
             <div class="rightbar">
                 right bar
