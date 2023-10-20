@@ -36,23 +36,17 @@
                         </div>
                     </div>
 
+                    
+
                     <div class="feeds">
-                        <div class="feed">
-                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                        </div>
-                        <div class="feed">
-                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                        </div>
-                        <div class="feed">
-                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                        </div>
-                        <div class="feed">
-                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                        </div>
-                        <div class="feed">
-                            <img src="{{ asset('default_profile.png') }}" alt="Default Profile Image">
-                        </div>
-                </div>
+                        @foreach ($posts as $post)
+                            @if($post['img1'] !== null)
+                                <div class="feed">
+                                    <img src="{{ asset('storage/' . $post['img1']) }}" alt="">
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
                     
                 </div>
                 

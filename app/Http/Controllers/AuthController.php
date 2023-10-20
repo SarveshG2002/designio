@@ -175,7 +175,9 @@ class AuthController extends Controller
 
 
     public function explore(){
-        return view('user.explore');
+        $postController = new PostController();
+        $posts=$postController->getExplorePosts();
+        return view('user.explore',['posts'=>$posts]);
     }
     public function friends(Request $request){
         $friendController = new friendController();

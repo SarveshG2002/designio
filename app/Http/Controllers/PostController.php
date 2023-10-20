@@ -75,6 +75,16 @@ class PostController extends Controller
         return $posts;
     }
 
+    public function getExplorePosts() {
+        $posts = Post::select('posts.*', 'profiles.username', 'profiles.profile')
+            ->leftJoin('profiles', 'posts.uid', '=', 'profiles.user_id')
+            ->inRandomOrder() // Retrieve random posts
+            ->get();
+    
+        return $posts;
+    }
+    
+
 
     public function likepost(Request $request, $postId) {
         try {
