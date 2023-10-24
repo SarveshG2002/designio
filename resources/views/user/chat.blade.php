@@ -10,7 +10,7 @@
                 {{-- hello --}}
             </div>
             <div class="middle">
-                Chatting
+                Chatting with {{$fid}}
             </div>
             <div class="rightbar">
                 right bar

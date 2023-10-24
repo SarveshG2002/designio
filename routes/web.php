@@ -38,7 +38,7 @@ Route::middleware(['check.session'])->group(function () {
     Route::get('/trending', [AuthController::class, 'trending']);
     Route::get('/setting', [AuthController::class, 'setting']);
     Route::post('/post/addpost', [PostController::class, 'addNewPost']);
-    Route::get('/chat',[ChatController::class,'getMyChat']);
+    Route::get('/chat/{fid}',[ChatController::class,'getMyChat']);
 });
 
 

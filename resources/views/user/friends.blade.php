@@ -40,7 +40,7 @@
                                 $iid=0;
                             @endphp
                             @foreach ($following as $key => $friend)
-                                <div class="flistdiv">
+                                <div class="flistdiv" onclick="window.location.href='chat/{{$friend->id}}'">
                                     <div class="profileimg">
                                         <div class="img">
                                             @php
