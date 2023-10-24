@@ -41,7 +41,7 @@
                     <div class="feeds">
                         @foreach ($posts as $post)
                             @if($post['img1'] !== null)
-                                <div class="feed">
+                                <div class="feed" onclick="toggleModal('{{ asset('storage/' . $post['img1']) }}')">
                                     <img src="{{ asset('storage/' . $post['img1']) }}" alt="">
                                 </div>
                             @endif
@@ -50,12 +50,22 @@
                     
                 </div>
 
-                <button class="trigger">Click the modal!</button>
+                {{-- <button class="trigger">Click the modal!</button> --}}
 
                 <div class="imagemodal">
                     <div class="modal-content">
-                        <span class="close-button">×</span>
-                        <h1>Hello, I am a modal!</h1>
+                        <div>
+                            <span class="close-button">×</span>
+                        </div>
+                        <div class="modal-partition">
+                            <div class="img">
+                                <img id="modalimage" src="{{ asset('storage/' . $post['img1']) }}" alt="">
+                            </div>
+                            <div class="comment">
+
+                            </div>
+                        </div>
+                        {{--  --}}
                     </div>
                 </div>
 
@@ -70,24 +80,25 @@
     </div> 
     <script>
         var modal = document.querySelector(".imagemodal");
-var trigger = document.querySelector(".trigger");
-var closeButton = document.querySelector(".close-button");
+        var trigger = document.querySelector(".trigger");
+        var closeButton = document.querySelector(".close-button");
 
-function toggleModal() {
-    console.log("clicked")
-    modal.classList.toggle("show-modal");
-}
+        function toggleModal(img) {
+            // console.log("clicked")
+            document.getElementById('modalimage').src=img
+            modal.classList.toggle("show-modal");
+        }
 
-function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
-}
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+        // trigger.addEventListener("click", toggleModal);
+        closeButton.addEventListener("click", toggleModal);
+        window.addEventListener("click", windowOnClick);
 
-    </script>                                                                                                                                                                                                                     
+    </script>                                                                                                                                                                                                                   
 </body>
 </html>

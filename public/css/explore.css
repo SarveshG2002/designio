@@ -79,8 +79,40 @@
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 24rem;
+    width: 1000px;
+    height: 700px;
     border-radius: 0.5rem;
+}
+
+/* .middle  .modal-content img{
+    /* width: 50rem; */
+    /* max-width: fit-content; */
+/* }  */
+
+.middle  .modal-content .modal-partition{
+    display: grid;
+    grid-template-columns: 70% auto;
+
+}
+
+.middle  .modal-content .modal-partition .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 650px;
+    background-color: #3e3e3e;
+    overflow: auto;
+}
+
+.middle  .modal-content .modal-partition .img img{
+    width: 100%;
+}
+
+.middle  .modal-content .modal-partition .comment{
+    width: 100%;
+    height: 100px;
+    background-color: #ff0000;
 }
 
 .middle  .close-button {
