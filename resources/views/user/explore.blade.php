@@ -49,12 +49,45 @@
                     </div>
                     
                 </div>
+
+                <button class="trigger">Click the modal!</button>
+
+                <div class="imagemodal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h1>Hello, I am a modal!</h1>
+                    </div>
+                </div>
+
+                
                 
             </div>
+            
             <div class="rightbar">
                 right bar
             </div>
         </div>     
-    </div>                                                                                                                                                                                                                      
+    </div> 
+    <script>
+        var modal = document.querySelector(".imagemodal");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    console.log("clicked")
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+    </script>                                                                                                                                                                                                                     
 </body>
 </html>
