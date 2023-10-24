@@ -62,7 +62,7 @@
                                 <img id="modalimage" src="{{ asset('storage/' . $post['img1']) }}" alt="">
                             </div>
                             <div class="comment">
-
+                                Comments over here
                             </div>
                         </div>
                         {{--  --}}
