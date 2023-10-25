@@ -100,6 +100,6 @@
 
 <script>
     function loadmypage(page){
-        window.location.href=page
+        window.location.href="{{url('/')}}/"+page
     }
 </script>
