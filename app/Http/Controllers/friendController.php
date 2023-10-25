@@ -25,39 +25,11 @@ class friendController extends Controller
             ->where('followers.user_id', $currentUserId)
             ->get(['users.*', 'profiles.bio','profiles.profile']);
 
-        // print_r();
-
-        // Retrieve users you don't follow
-        // $usersNotFollowed = User::select('users.*', 'profiles.bio', 'profiles.profile')
-        // ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-        // ->leftJoin('followers', 'users.id', '=', 'followers.followed_user_id')
-        // ->where('users.id', '<>', $currentUserId)
-        // ->where('followers.user_id','!=',$currentUserId)
-        // ->get();
-
 
 
         $usersNotFollowed = User::select('users.*', 'profiles.bio', 'profiles.profile')
         ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
         ->where('users.id','<>',$currentUserId)->get();
-
-
-        // foreach($usersNotFollowed as $user){
-        //     print_r($user->name);
-        //     echo "\n";
-        //     print_r($user->email);
-        //     echo "\n";
-        //     var_dump($this->isfollowing($currentUserId,$user->id));
-        //     echo "\n";
-        //     echo "\n";
-        //     echo "\n";
-        // }
-        //Query logic: Select * users then check if current user is following or not using helper then show it
-
-        // echo "<pre>";
-        // echo $currentUserId;
-        // print_r($usersNotFollowed->toArray());
-        // echo "</pre>";
 
         return [
             'following' => $following,
@@ -75,10 +47,6 @@ class friendController extends Controller
         return $count > 0;
     }
 
-
-    // use Illuminate\Support\Facades\DB;
-
-    // use App\Models\Follower;
 
     public function followFriend(Request $request, $id) {
         // Get the user's ID from the session
