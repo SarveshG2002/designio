@@ -116,10 +116,10 @@
                                 </div>
                                 <div class="wrap msg-input">
                                     <div class="search">
-                                        <input type="text" class="searchTerm" placeholder="Search" style="width:90%">
-                                        <button type="submit" class="searchButton">
+                                        <input type="text" class="searchTerm" id="my-input-msg" placeholder="Search" style="width:90%">
+                                        <button type="submit" class="searchButton" id="send_my_mesg">
                                                 <span class="material-symbols-outlined">
-                                                    search
+                                                    send
                                                 </span>
                                         </button>
                                     </div>
@@ -149,6 +149,31 @@
         // newMessage.className = "message left";
         // messageContainer.appendChild(newMessage);
         scrollToBottom();
+
+        document.getElementById("my-input-msg").addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+
+        document.getElementById('send_my_mesg').addEventListener('click', () => {
+            sendMessage();
+        });
+
+        function sendMessage() {
+            let myMsg = document.getElementById("my-input-msg").value;
+
+            if (myMsg) {
+                const newMessage = document.createElement("div");
+                newMessage.textContent = myMsg;
+                newMessage.className = "message my-text";
+                messageContainer.appendChild(newMessage);
+                scrollToBottom(); // Scroll to the newest message
+
+                // Clear the input field after sending
+                document.getElementById("my-input-msg").value = "";
+            }
+        }
     </script>                                                                                                                                                                                                                 
 </body>
 </html>
