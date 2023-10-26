@@ -52,7 +52,7 @@
                                             <p class="name">
                                                 {{ $friend->name }} {{-- Assuming 'name' is the property you want to display --}}
                                             </p>
-                                            <div class="msg">
+                                            <div class="msg" style="font-size:15px">
                                                 {{ $friend->bio }}
                                             </div>
                                         </div>
@@ -72,7 +72,62 @@
                     </div>
                 </div>
                 <div class="right_middle">
-                    Right
+                    <div class="feedDiv" style="width:98%">
+                        <div class="statuscontainer">
+                            <div class="wrap">
+                                <div class="" style="border-width:0px 0px 0.5px 0px; border-style:ridge; border-color:rgb(209, 209, 209)">
+                                {{-- <input type="text" class="searchTerm" placeholder="Search">
+                                <button type="submit" class="searchButton">
+                                        <span class="material-symbols-outlined">
+                                            search
+                                        </span>
+                                </button> --}}
+                                <div class="friendName">
+                                    Sarvesh Gandhere
+                                </div>
+                                </div>
+                            </div>
+                            <div class="messages">
+                                <div class="text-messages" id="message-container">
+                                    <div class="message my-text">This is a left-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message my-text">Another left-aligned message.Another left-aligned message</div>
+                                    <div class="message my-text">Another righ right-alignet-aligned message.</div>
+                                    <div class="message my-text">This is a left-aligned message. Another message</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message my-text">Another left-aligned message.</div>
+                                    <div class="message my-text">Another right-aligned mesAnother left-aligned messageAnother left-aligned messagesage.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message friend-text">This is aAnother left-aligned message right-aligned message.</div>
+                                    <div class="message friend-text">This is a rir left-alignght-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                     <div class="message my-text">Another right-aligned message.</div>
+                                    <div class="message my-text">This is a left-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message my-text">Another left-a right-alignelignr left-aligned message.</div>
+                                    <div class="message my-text">This is a left-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message my-text">Another left-aligned message.</div>
+                                    <div class="message my-text">Another right-ali right-aligne right-alignegned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message friend-text">This is a right-aligned message.</div>
+                                    <div class="message my-text">Another right-aligned message.</div>
+                                </div>
+                                <div class="wrap msg-input">
+                                    <div class="search">
+                                        <input type="text" class="searchTerm" placeholder="Search" style="width:90%">
+                                        <button type="submit" class="searchButton">
+                                                <span class="material-symbols-outlined">
+                                                    search
+                                                </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
                 
             </div>
@@ -80,6 +135,20 @@
                 right bar
             </div>
         </div>     
-    </div>                                                                                                                                                                                                                      
+    </div>     
+    <script>
+        // JavaScript to automatically scroll to the newest message
+        const messageContainer = document.getElementById("message-container");
+        function scrollToBottom() {
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+
+        // Example: Add a new message and then scroll to it
+        // const newMessage = document.createElement("div");
+        // newMessage.textContent = "This is a new message.";
+        // newMessage.className = "message left";
+        // messageContainer.appendChild(newMessage);
+        scrollToBottom();
+    </script>                                                                                                                                                                                                                 
 </body>
 </html>

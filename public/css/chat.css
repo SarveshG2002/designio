@@ -75,7 +75,7 @@
 
 .friendList .flistdiv{
     width: 100%;
-    height: 100px;
+    /* height: 80px; */
     padding: 10px;
     display: grid;
     grid-template-columns: 25% 50% auto;
@@ -91,7 +91,7 @@
     width: 100%;
 }
 
-.friendList .flistdiv .fname .name{
+.friendList .flistdiv .fname .name, .friendList .flistdiv .fname .msg{
     font-size: 30px;
     text-overflow: ellipsis;
     /* height: 100%; */
@@ -126,8 +126,57 @@
     width: fir-content;
 }
 
+.friendName{
+    width: 40%;
+    border: none;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    font-size: large;
+    /* border-radius: 15px; */
+    outline: none;
+    /* color: #9DBFAF; */
+    /* background-color: #eeeeee */
+}
 
+.messages{
+    height:80vh;
+    overflow-x: auto;
+    position: relative;
+}
 
+.msg-input{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.text-messages{
+    /* background-color: #ffcc00; */
+    padding: 10px;
+    height: calc(100% - 40px); /* Calculate the height to fill the remaining space */
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+.message {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    word-wrap: break-word; /* Wrap long words if needed */
+    max-width: 70%; /* Limit message width to avoid excessive stretching */
+}
+
+.my-text {
+    align-self: flex-start;
+    background-color: #673ab7;
+    color: white;
+}
+
+.friend-text {
+    align-self: flex-end;
+    background-color: #e0e0e0;
+}
 
 
 
