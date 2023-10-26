@@ -7,12 +7,14 @@
 }
 .middle{
     /* background-color: aquamarine; */
+    display: grid;
+    grid-template-columns: 450px auto;
 }
 .middle .feedDiv{
-    width: 30%;
+    width: 90%;
     /* height: 200px; */
     
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 .middle .feedDiv .statuscontainer{
