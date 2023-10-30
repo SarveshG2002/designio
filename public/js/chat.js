@@ -58,8 +58,8 @@
 
         // Send the message via AJAX
         $.ajax({
-            type: 'get',
-            url: '/api/chat/my-chat/',
+            type: 'post',
+            url: '/api/chat/my-chat',
             // dataType: 'json',
             headers: {
                 // Set the Authorization header with the bearer token
