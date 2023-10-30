@@ -89,30 +89,19 @@
                             </div>
                             <div class="messages">
                                 <div class="text-messages" id="message-container">
-                                    <div class="message my-text">This is a left-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message my-text">Another left-aligned message.Another left-aligned message</div>
-                                    <div class="message my-text">Another righ right-alignet-aligned message.</div>
-                                    <div class="message my-text">This is a left-aligned message. Another message</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message my-text">Another left-aligned message.</div>
-                                    <div class="message my-text">Another right-aligned mesAnother left-aligned messageAnother left-aligned messagesage.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message friend-text">This is aAnother left-aligned message right-aligned message.</div>
-                                    <div class="message friend-text">This is a rir left-alignght-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                     <div class="message my-text">Another right-aligned message.</div>
-                                    <div class="message my-text">This is a left-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message my-text">Another left-a right-alignelignr left-aligned message.</div>
-                                    <div class="message my-text">This is a left-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message my-text">Another left-aligned message.</div>
-                                    <div class="message my-text">Another right-ali right-aligne right-alignegned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message friend-text">This is a right-aligned message.</div>
-                                    <div class="message my-text">Another right-aligned message.</div>
+                                    <div class="message my-text">
+                                        <div class="amsg">
+                                            This is a left-aligned message.
+                                        </div>
+                                        <div class="msgstatus">
+                                            <span class="material-symbols-outlined my-text">schedule</span>
+                                        </div>
+                                    </div>
+                                    <div class="message friend-text">
+                                        This is a right-aligned message.
+                                    </div>
+
+                                    
                                 </div>
                                 <div class="wrap msg-input">
                                     <div class="search">
@@ -136,44 +125,8 @@
             </div>
         </div>     
     </div>     
-    <script>
-        // JavaScript to automatically scroll to the newest message
-        const messageContainer = document.getElementById("message-container");
-        function scrollToBottom() {
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-        }
-
-        // Example: Add a new message and then scroll to it
-        // const newMessage = document.createElement("div");
-        // newMessage.textContent = "This is a new message.";
-        // newMessage.className = "message left";
-        // messageContainer.appendChild(newMessage);
-        scrollToBottom();
-
-        document.getElementById("my-input-msg").addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        });
-
-        document.getElementById('send_my_mesg').addEventListener('click', () => {
-            sendMessage();
-        });
-
-        function sendMessage() {
-            let myMsg = document.getElementById("my-input-msg").value;
-
-            if (myMsg) {
-                const newMessage = document.createElement("div");
-                newMessage.textContent = myMsg;
-                newMessage.className = "message my-text";
-                messageContainer.appendChild(newMessage);
-                scrollToBottom(); // Scroll to the newest message
-
-                // Clear the input field after sending
-                document.getElementById("my-input-msg").value = "";
-            }
-        }
-    </script>                                                                                                                                                                                                                 
+    
+    
+    <script src="{{ asset('js/chat.js') }}"></script>   
 </body>
 </html>

@@ -173,6 +173,10 @@
     color: white;
 }
 
+.amsg{
+    color: #fff;
+}
+
 .friend-text {
     align-self: flex-end;
     background-color: #e0e0e0;
