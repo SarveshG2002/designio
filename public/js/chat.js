@@ -38,7 +38,7 @@
         const messageStatus = document.createElement("div");
         messageStatus.className = "msgstatus";
         
-        // Add an icon or text to represent the status (e.g., 'Sent')
+        // Add an icon or text to represent the status (e.g., 'Sending...')
         const statusIcon = document.createElement("span");
         statusIcon.className = "material-symbols-outlined my-text";
         statusIcon.textContent = "schedule"; // You can change the icon or text
@@ -56,10 +56,9 @@
         // Clear the input field after sending
         document.getElementById("my-input-msg").value = "";
 
-
-
+        // Send the message via AJAX
         $.ajax({
-            type: 'POST',
+            type: 'get',
             url: '/api/chat/my-chat/',
             // dataType: 'json',
             headers: {
@@ -68,17 +67,19 @@
             },
             success: function (data) {
                 // Request was successful
-                if(data.message == "sent"){
-                    
-                }else if(data.message == "failed"){
-                    
+                data=JSON.parse(data)
+                if (data.message === "sent") {
+                    // Message sent successfully, remove the status div
+                    newMessage.removeChild(messageStatus);
+                } else if (data.message === "failed") {
+                    // Handle the case where the message failed to send
                 }
             },
             error: function (xhr, textStatus, errorThrown) {
                 // Request failed
-                console.error('Cant send msg');
+                console.error("Can't send msg");
             },
-        })
-
+        });
     }
 }
+

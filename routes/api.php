@@ -12,6 +12,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // Add your route here
     Route::post('/friend/followfriend/{id}', [friendController::class, 'followFriend']);
     Route::post('/post/likepost/{id}', [PostController::class, 'likepost']);
+    Route::get('/chat/my-chat',function (){
+        return json_encode(['message'=>"sent"]);
+    });
+
 });
+
+
 
 
