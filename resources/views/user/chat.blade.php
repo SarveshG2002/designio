@@ -7,6 +7,7 @@
         @include('includes.navbar')
         <div class="container">
             <div class="sidebar">
+                <input type="hidden" id="userid" value="{{$user_id}}">
                 @include('includes.sidebar',['page'=>'friends'])
                 {{-- hello --}}
             </div>
@@ -31,7 +32,7 @@
                                 </div>
                                 @php
                                     $iid=0;
-                                    // print_r();
+                                    print_r($mydata->toArray());
                                 @endphp
                                 @foreach ($following as $key => $friend)
                                     <div class="flistdiv" onclick="window.location.href='{{url('/')}}/chat/{{$friend->id}}'">

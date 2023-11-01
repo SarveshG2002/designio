@@ -60,6 +60,7 @@
         $.ajax({
             type: 'post',
             url: '/api/chat/my-chat',
+            data:{'userid':document.getElementById('userid').value},
             // dataType: 'json',
             headers: {
                 // Set the Authorization header with the bearer token
