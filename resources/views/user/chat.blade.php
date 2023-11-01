@@ -31,6 +31,7 @@
                                 </div>
                                 @php
                                     $iid=0;
+                                    // print_r();
                                 @endphp
                                 @foreach ($following as $key => $friend)
                                     <div class="flistdiv" onclick="window.location.href='{{url('/')}}/chat/{{$friend->id}}'">
@@ -83,7 +84,7 @@
                                         </span>
                                 </button> --}}
                                 <div class="friendName">
-                                    Sarvesh Gandhere
+                                    {{$mydata->toArray()['name']}}
                                 </div>
                                 </div>
                             </div>

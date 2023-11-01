@@ -39,6 +39,24 @@ class friendController extends Controller
         // print_r($usersNotFollowed->toArray());
     }
 
+    public function getMyfriendChat($fid) {
+        // Assuming you have a User model and a Profile model defined
+        
+        // Get the user data with the given ID, including their profile
+        $user = User::join('profiles', 'users.id', '=', 'profiles.user_id')
+        ->where('users.id', $fid)
+        ->first();
+        
+        if ($user) {
+            // $user will contain the user data along with the related profile data
+            return [$user];
+        } else {
+            // Handle the case where the user is not found
+            return response()->json(['error' => 'User not found']);
+        }
+    }
+    
+
     public function isFollowing($user_id, $other_user_id) {
         $count = Follower::where('user_id', $user_id)
             ->where('followed_user_id', $other_user_id)

@@ -38,6 +38,8 @@
                             </div>
                             @php
                                 $iid=0;
+                                // echo "hello";
+                                
                             @endphp
                             @foreach ($following as $key => $friend)
                                 <div class="flistdiv" onclick="window.location.href='chat/{{$friend->id}}'">
