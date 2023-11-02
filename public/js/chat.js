@@ -60,7 +60,7 @@
         $.ajax({
             type: 'post',
             url: '/api/chat/my-chat',
-            data:{'userid':document.getElementById('userid').value},
+            data:{'userid':document.getElementById('userid').value,message:myMsg},
             // dataType: 'json',
             headers: {
                 // Set the Authorization header with the bearer token
@@ -69,6 +69,7 @@
             success: function (data) {
                 // Request was successful
                 data=JSON.parse(data)
+                console.log(data)
                 if (data.message === "sent") {
                     // Message sent successfully, remove the status div
                     newMessage.removeChild(messageStatus);

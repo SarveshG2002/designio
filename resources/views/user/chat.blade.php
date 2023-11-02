@@ -32,7 +32,7 @@
                                 </div>
                                 @php
                                     $iid=0;
-                                    print_r($mydata->toArray());
+                                    // print_r($mydata->toArray());
                                 @endphp
                                 @foreach ($following as $key => $friend)
                                     <div class="flistdiv" onclick="window.location.href='{{url('/')}}/chat/{{$friend->id}}'">
