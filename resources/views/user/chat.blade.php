@@ -91,7 +91,7 @@
                             </div>
                             <div class="messages">
                                 <div class="text-messages" id="message-container">
-                                    <div class="message my-text">
+                                    {{-- <div class="message my-text">
                                         <div class="amsg">
                                             This is a left-aligned message.
                                         </div>
@@ -101,7 +101,22 @@
                                     </div>
                                     <div class="message friend-text">
                                         This is a right-aligned message.
-                                    </div>
+                                    </div> --}}
+
+                                    @foreach ($messages as $msg)
+                                        @if($msg->user_id==auth()->user()->id)
+                                        <div class="message my-text">
+                                            <div class="amsg">
+                                                {{$msg->content}}
+                                            </div>
+                                            
+                                        </div>
+                                        @else
+                                        <div class="message friend-text">
+                                            {{$msg->content}}
+                                        </div>
+                                        @endif
+                                    @endforeach
 
                                     
                                 </div>

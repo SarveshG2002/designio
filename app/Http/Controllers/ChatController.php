@@ -20,34 +20,34 @@ class ChatController extends Controller
         return  $chat;
     }
 
-    public function getMyChat($fid,Request $request){
-
+    public function getMyChat($fid, Request $request) {
         $userId = auth()->user()->id; // Get the logged-in user's ID
         $recipientUserId = $fid; // Get the recipient user's ID
-
+    
         // Check if a chat already exists based on the user IDs
-        $chat = $this->getChatId($userId,$recipientUserId);
-
-        if ($chat) {
-            // Chat already exists
-            // return json_encode(['message' => 'Chat already exists']);
-        } else {
-            // Chat does not exist
+        $chat = $this->getChatId($userId, $recipientUserId);
+    
+        if (!$chat) {
+            // Chat does not exist, create a new chat
             $newChat = new Chat();
             $newChat->user1_id = $userId;
             $newChat->user2_id = $recipientUserId;
             $newChat->save();
-            // print_r()
-            // return json_encode(['message' => 'sent']);
         }
-
+    
+        // Now, whether the chat already existed or was just created, you can fetch the messages for this chat
+        $messages = Message::where('chat_id', $chat->id)->get();
+    
         $friendController = new friendController();
-        $friendData=$friendController->getMyfriendChat($fid);
-        $friends=$friendController->getFriends($request);
-        $friends['mydata']=$friendData[0];
-        $friends['user_id']=$fid;
-        return view('user.chat',$friends);
+        $friendData = $friendController->getMyfriendChat($fid);
+        $friends = $friendController->getFriends($request);
+        $friends['mydata'] = $friendData[0];
+        $friends['user_id'] = $fid;
+        $friends['messages'] = $messages; // Pass the messages to the view
+    
+        return view('user.chat', $friends);
     }
+    
 
     public function sendmsg(Request $request) {
         try {
