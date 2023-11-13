@@ -30,7 +30,6 @@ Route::get('/profile', [AuthController::class, 'showProfileForm']);
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::middleware(['check.session'])->group(function () {
-    
     Route::get('/home', [AuthController::class, 'home']);
     Route::get('/explore', [AuthController::class, 'explore']);
     Route::get('/friends', [AuthController::class, 'friends']);

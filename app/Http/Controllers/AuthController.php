@@ -9,6 +9,7 @@ use App\Models\Profile;
 use App\Http\Controllers\friendController;
 use Laravel\Sanctum\PersonalAccessToken;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ChatController;
 
 
 
@@ -185,12 +186,15 @@ class AuthController extends Controller
         return view('user.friends',$friends);
     }
     public function group(){
-        return view('user.groups');
+        $chatController = new ChatController();
+        $myChat=$chatController->getAllNewChat(); 
+        return view('user.groups',['myChat'=>$mysChat]);
     }
     public function trending(){
         return view('user.trending');
     }
     public function setting(){
+        
         return view('user.setting');
     }
     

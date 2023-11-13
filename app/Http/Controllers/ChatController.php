@@ -47,6 +47,26 @@ class ChatController extends Controller
     
         return view('user.chat', $friends);
     }
+
+    public function getAllNewChat() {
+        $userId = auth()->user()->id;
+    
+        $chats = Chat::select('chats.id as chat_id', 'users.id as user_id', 'users.name', 'messages.content', 'messages.created_at as last_message_time')
+            ->join('users', function ($join) use ($userId) {
+                $join->on('chats.user1_id', '=', 'users.id')
+                    ->where('chats.user2_id', '=', $userId)
+                    ->orWhere('chats.user2_id', '=', $userId)
+                    ->where('chats.user1_id', '=', 'users.id');
+            })
+            ->leftJoin('messages', function ($join) {
+                $join->on('chats.id', '=', 'messages.chat_id')
+                    ->whereRaw('messages.id = (select max(id) from messages where messages.chat_id = chats.id)');
+            })
+            ->orderByDesc('last_message_time')
+            ->get();
+    
+        return $chats;
+    }
     
 
     public function sendmsg(Request $request) {
