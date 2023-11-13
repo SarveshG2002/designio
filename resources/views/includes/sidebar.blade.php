@@ -68,7 +68,7 @@
                     group                        
                     </span>
                         &nbsp;&nbsp;
-                    Groups
+                    Messages
             </div>
         </div>
         <div class="navigation" onclick="loadmypage('trending')">
