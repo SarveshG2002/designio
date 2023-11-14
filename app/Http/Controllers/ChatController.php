@@ -7,6 +7,7 @@ use App\Http\Controllers\friendController;
 use App\Models\Chat;
 use App\Models\Message;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class ChatController extends Controller
 {
@@ -48,25 +49,28 @@ class ChatController extends Controller
         return view('user.chat', $friends);
     }
 
-    public function getAllNewChat() {
-        $userId = auth()->user()->id;
-    
-        $chats = Chat::select('chats.id as chat_id', 'users.id as user_id', 'users.name', 'messages.content', 'messages.created_at as last_message_time')
-            ->join('users', function ($join) use ($userId) {
-                $join->on('chats.user1_id', '=', 'users.id')
-                    ->where('chats.user2_id', '=', $userId)
-                    ->orWhere('chats.user2_id', '=', $userId)
-                    ->where('chats.user1_id', '=', 'users.id');
-            })
-            ->leftJoin('messages', function ($join) {
-                $join->on('chats.id', '=', 'messages.chat_id')
-                    ->whereRaw('messages.id = (select max(id) from messages where messages.chat_id = chats.id)');
-            })
-            ->orderByDesc('last_message_time')
-            ->get();
-    
-        return $chats;
-    }
+    public function getAllNewChat()
+{
+    $userId = 15; // Replace with the desired user ID
+
+    $chats = DB::table('chats')
+        ->select('chats.*', 'messages.content', 'messages.created_at AS latest_message_time')
+        ->join(DB::raw('(SELECT messages.chat_id, MAX(messages.created_at) AS latest_create_time
+            FROM messages
+            GROUP BY messages.chat_id) AS latest_messages'), function ($join) {
+            $join->on('chats.id', '=', 'latest_messages.chat_id');
+        })
+        ->join('messages', function ($join) {
+            $join->on('messages.chat_id', '=', 'latest_messages.chat_id')
+                ->on('messages.created_at', '=', 'latest_messages.latest_create_time');
+        })
+        ->where('user1_id', $userId)
+        ->orWhere('user2_id', $userId)
+        ->orderBy('latest_message_time', 'DESC')
+        ->get();
+
+    return $chats;
+}
     
 
     public function sendmsg(Request $request) {

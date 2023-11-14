@@ -37,7 +37,9 @@
                                 $iid=0;
                                 // echo "hello";
                                 $following = [];
+                                echo "<pre>";
                                 print_r($myChat);
+                                echo "</pre>";
                             @endphp
                             @foreach ($following as $key => $friend)
                                 <div class="flistdiv" onclick="window.location.href='chat/{{$friend->id}}'">

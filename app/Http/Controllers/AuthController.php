@@ -188,7 +188,7 @@ class AuthController extends Controller
     public function group(){
         $chatController = new ChatController();
         $myChat=$chatController->getAllNewChat(); 
-        return view('user.groups',['myChat'=>$mysChat]);
+        return view('user.groups',['myChat'=>$myChat]);
     }
     public function trending(){
         return view('user.trending');
