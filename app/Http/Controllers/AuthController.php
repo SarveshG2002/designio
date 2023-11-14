@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Profile;
+use App\Models\User;
 use App\Http\Controllers\friendController;
 use Laravel\Sanctum\PersonalAccessToken;
 use App\Http\Controllers\PostController;
@@ -196,6 +197,16 @@ class AuthController extends Controller
     public function setting(){
         
         return view('user.setting');
+    }
+
+    public function getUserData($userId)
+    {
+        $user = User::select('users.*', 'profiles.*')
+            ->where('users.id', $userId)
+            ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+            ->first();
+
+        return $user;
     }
     
 

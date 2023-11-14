@@ -2,6 +2,7 @@
 // app/helpers.php
 use App\Models\Like;
 use App\Http\Controllers\friendController;
+use App\Http\Controllers\authController;
 
 if (!function_exists('customHelperGetLikes')) {
     function customHelperGetLikes($postId) {
@@ -28,6 +29,14 @@ if (!function_exists('isFollowing')) {
         // Get the authenticated user's ID (you can replace this with your authentication logic)
         $friendController = new friendController();
         return $friendController->isFollowing($user,$otheruser);
+    }
+}
+
+if(!function_exists('userDataById')){
+    function userDataById($userid){
+        $authController = new authController();
+        $data=$authController->getUserData($userid);
+        return $data;
     }
 }
 
