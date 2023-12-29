@@ -1,3 +1,43 @@
+@php
+    $sidebar=[
+        'Feed'=>[
+            'link'=>'home',
+            'page'=>'feed',
+            'icon'=>'dashboard'
+        ],
+        'Explore'=>[
+            'link'=>'explore',
+            'page'=>'explore',
+            'icon'=>'travel_explore'
+        ],
+        'Friends'=>[
+            'link'=>'friends',
+            'page'=>'friends',
+            'icon'=>'diversity_3'
+        ],
+        'Messages'=>[
+            'link'=>'group',
+            'page'=>'group',
+            'icon'=>'group'
+        ],
+        'Trending'=>[
+            'link'=>'trending',
+            'page'=>'trending',
+            'icon'=>'chart_data'
+        ],
+        'Setting'=>[
+            'link'=>'setting',
+            'page'=>'setting',
+            'icon'=>'settings'
+        ],
+        'Explore'=>[
+            'link'=>'explore',
+            'page'=>'explore',
+            'icon'=>'travel_explore'
+        ],
+
+    ];
+@endphp
 <div class="sidebardiv">
     <div class="myprofile">
         <div class="profile">
@@ -23,7 +63,7 @@
         </div>
     </div>
     <div class="navigations">
-        <div class="navigation" onclick="loadmypage('home')">
+        {{-- <div class="navigation" onclick="loadmypage('home')">
             <div class="{{ ($page=="feed")?'indicator':'' }}">
             
             </div>
@@ -94,7 +134,24 @@
                         &nbsp;&nbsp;
                     Setting
             </div>
-        </div>
+        </div> --}}
+
+        @foreach ($sidebar as $pagee=>$pagedata)
+            <div class="navigation" onclick="loadmypage('<?=$pagedata['link']?>')">
+                <div class="{{ ($page==$pagedata['page'])?'indicator':'' }}">
+                
+                </div>
+                <div class="inditext">
+                        <span class="material-symbols-outlined">
+                            {{$pagedata['icon']}}
+                            </span>
+                            &nbsp;&nbsp;
+                        {{$pagee}}
+                </div>
+            </div>
+        @endforeach
+
+
     </div>
 </div>
 
