@@ -194,8 +194,12 @@ class AuthController extends Controller
     public function trending(){
         return view('user.trending');
     }
+    public function myPosts(){
+        $postController = new PostController();
+        $posts=$postController->getMyPosts();
+        return view('user.myPosts',['posts'=>$posts]);
+    }
     public function setting(){
-        
         return view('user.setting');
     }
 

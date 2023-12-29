@@ -30,12 +30,16 @@
             'page'=>'setting',
             'icon'=>'settings'
         ],
+        'My Posts'=>[
+            'link'=>'myPosts',
+            'page'=>'myPosts',
+            'icon'=>'settings'
+        ],
         'Explore'=>[
             'link'=>'explore',
             'page'=>'explore',
             'icon'=>'travel_explore'
         ],
-
     ];
 @endphp
 <div class="sidebardiv">
@@ -63,79 +67,6 @@
         </div>
     </div>
     <div class="navigations">
-        {{-- <div class="navigation" onclick="loadmypage('home')">
-            <div class="{{ ($page=="feed")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                    <span class="material-symbols-outlined">
-                        dashboard
-                        </span>
-                        &nbsp;&nbsp;
-                    Feed
-            </div>
-        </div>
-        <div class="navigation" onclick="loadmypage('explore')">
-            <div class="{{ ($page=="explore")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                <span class="material-symbols-outlined">
-                    travel_explore
-                    </span>
-                        &nbsp;&nbsp;
-                    Explore
-            </div>
-        </div>
-        <div class="navigation" onclick="loadmypage('friends')">
-            <div class="{{ ($page=="friends")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                <span class="material-symbols-outlined">
-                    diversity_3
-                    </span>
-                        &nbsp;&nbsp;
-                    Friends
-            </div>
-        </div>
-        <div class="navigation" onclick="loadmypage('group')">
-            <div class="{{ ($page=="group")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                    <span class="material-symbols-outlined">
-                    group                        
-                    </span>
-                        &nbsp;&nbsp;
-                    Messages
-            </div>
-        </div>
-        <div class="navigation" onclick="loadmypage('trending')">
-            <div class="{{ ($page=="trending")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                <span class="material-symbols-outlined">
-                    chart_data
-                    </span>
-                        &nbsp;&nbsp;
-                    Trending
-            </div>
-        </div>
-        <div class="navigation" onclick="loadmypage('setting')">
-            <div class="{{ ($page=="setting")?'indicator':'' }}">
-            
-            </div>
-            <div class="inditext">
-                    <span class="material-symbols-outlined">
-                        settings
-                        </span>
-                        &nbsp;&nbsp;
-                    Setting
-            </div>
-        </div> --}}
-
         @foreach ($sidebar as $pagee=>$pagedata)
             <div class="navigation" onclick="loadmypage('<?=$pagedata['link']?>')">
                 <div class="{{ ($page==$pagedata['page'])?'indicator':'' }}">

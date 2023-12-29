@@ -83,6 +83,13 @@ class PostController extends Controller
     
         return $posts;
     }
+
+    public function getMyPosts(){
+        $userId = session('id');
+        $posts = Post::select('*')
+        ->where('uid', $userId)->get();
+        return $posts;
+    }
     
 
 
