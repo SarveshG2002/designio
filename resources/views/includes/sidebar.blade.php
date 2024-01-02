@@ -33,7 +33,7 @@
         'My Posts'=>[
             'link'=>'myPosts',
             'page'=>'myPosts',
-            'icon'=>'settings'
+            'icon'=>'post'
         ],
         'Explore'=>[
             'link'=>'explore',
