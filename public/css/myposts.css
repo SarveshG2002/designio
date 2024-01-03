@@ -140,7 +140,7 @@
     height: fit-content;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #673ab7;
+    background-color: #8858db;
     cursor: pointer;
     margin-top: 10px;
     border-radius: 10px;
@@ -171,4 +171,26 @@
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.chip {
+    display: inline-block;
+    background-color: #8858db;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chip-input{
+    width: 80%;
+    border: none;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 15px;
+    outline: none;
+    color: #9DBFAF;
+    background-color: #eeeeee
 }

@@ -63,7 +63,7 @@
                             <div class="img" id="modal_image">
                                 <img id="modalimage" src="{{ asset('storage/' . $post['img1']) }}" alt="">
                             </div>
-                            <div class="PostData">
+                            <div class="PostData" id="postShow">
                                 <div class="date_div">
                                     <span>Posted At</span>
                                     <div class="date" id="date">
@@ -85,8 +85,44 @@
 
                                     </div>
                                 </div>
-                                <div class="updateBut">
+                                <div class="updateBut" onclick="changeData()">
                                     Edit
+                                </div>
+                                <input type="hidden" id="postid">
+                                
+                            </div>
+                            <div class="PostData" id="postInout" style="display:none">
+                                <div class="date_div">
+                                    <span>Posted At</span>
+                                    <div class="date" id="date">
+                                    
+                                    </div>
+                                </div>
+                                <div class="hr"></div>
+                                <div class="desc_div">
+                                    <span>Discription</span><br>
+                                    <textarea class="desc" id="desc_i" cols="30">
+
+                                    </textarea>
+                                </div>
+                                
+                                <div class="hr"></div>
+                                <div class="tags_div">
+                                    <span>Tags</span>
+                                    <div class="tags" id="tags_i"`>
+
+                                    </div>
+                                    
+                                        <input type="text" id="text-input" class="chip-input"
+                                            placeholder="Enter text and press Enter">
+                                        <i class="fa-regular fa-circle-question" title="You can place hashtag by typing here.
+                                        To add multiple hashtags press enter after a tag.
+                                        To remove a tag click on that tag"></i>
+                                    <div id="chips-container">
+                                    </div>
+                                </div>
+                                <div class="updateBut">
+                                    Update
                                 </div>
                                 <input type="hidden" id="postid">
                                 
@@ -109,12 +145,20 @@
         var modal = document.querySelector(".imagemodal");
         var trigger = document.querySelector(".trigger");
         var closeButton = document.querySelector(".close-button");
+        const chipsContainer = document.getElementById('chips-container');
+        const textInput = document.getElementById('text-input');
+        const postdesc = document.getElementById('postdesc');
 
         function toggleModal(img,disc,tags,date,id) {
             document.getElementById('modalimage').src = img;
             document.getElementById('date').textContent = date;
             document.getElementById('desc').textContent = disc;
             document.getElementById('tags').textContent = tags;
+            document.getElementById('postShow').style.display='block';
+            document.getElementById('desc_i').textContent='' 
+            document.getElementById('tags_i').textContent= ''
+            document.getElementById('postInout').style.display='none';
+            chipsContainer.innerHTML='';
             // Get dominant color of the image
             getDominantColor(img, function(dominantColor) {
                 console.log('Dominant Color:', dominantColor);
@@ -124,6 +168,21 @@
             });
             document.getElementById('postid').value=id;
             modal.classList.toggle("show-modal");
+        }
+
+        function changeData(){
+            document.getElementById('postShow').style.display='none';
+            document.getElementById('desc_i').textContent=document.getElementById('desc').textContent 
+            let tags=(document.getElementById('tags').textContent) .split(', ');
+            console.log(tags);
+            tags.forEach(tag => {
+                // console.log(tag)
+                // console.log(tag.split('#'))
+                tag=tag.split('#');
+                createChip(tag[tag.length-1]);
+            });
+            document.getElementById('tags_i').textContent=''
+            document.getElementById('postInout').style.display='block';
         }
 
 
@@ -171,6 +230,32 @@
             }
         }
 
+        
+
+        textInput.addEventListener('keydown', function (event) {
+
+            if (event.key === 'Enter' && textInput.value.trim() !== '') {
+                event.preventDefault();
+                createChip(textInput.value.trim());
+                textInput.value = '';
+            }
+        });
+
+
+        function createChip(text) {
+            // console.log('text:',text)
+            if(text!=''){
+                const chip = document.createElement('div');
+                chip.classList.add('chip');
+                chip.textContent = "#" + text;
+                chipsContainer.appendChild(chip);
+
+                chip.addEventListener('click', function () {
+                    chip.remove();
+                });
+            }
+            
+        }
         // trigger.addEventListener("click", toggleModal);
         closeButton.addEventListener("click", toggleModal);
         window.addEventListener("click", windowOnClick);
