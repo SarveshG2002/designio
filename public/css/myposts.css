@@ -135,6 +135,18 @@
     /* background-color: #ff0000; */
 }
 
+.middle  .modal-content .modal-partition .PostData .updateBut{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #673ab7;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
 .hr{
     width: 90%;
     height: 1px;

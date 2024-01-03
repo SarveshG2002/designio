@@ -43,7 +43,7 @@
                         @foreach ($posts as $post)
                         
                             @if($post['img1'] !== null)
-                                <div class="feed" onclick="toggleModal('{{ asset('storage/' . $post['img1']) }}','{{ $post['description']}}','{{ $post['tags'] }}','{{ $post['created_at'] }}')">
+                                <div class="feed" onclick="toggleModal('{{ asset('storage/' . $post['img1']) }}','{{ $post['description']}}','{{ $post['tags'] }}','{{ $post['created_at'] }}','{{ $post['id'] }}')">
                                     <img src="{{ asset('storage/' . $post['img1']) }}" alt="">
                                 </div>
                             @endif
@@ -85,6 +85,10 @@
 
                                     </div>
                                 </div>
+                                <div class="updateBut">
+                                    Edit
+                                </div>
+                                <input type="hidden" id="postid">
                                 
                             </div>
                         </div>
@@ -106,7 +110,7 @@
         var trigger = document.querySelector(".trigger");
         var closeButton = document.querySelector(".close-button");
 
-        function toggleModal(img,disc,tags,date) {
+        function toggleModal(img,disc,tags,date,id) {
             document.getElementById('modalimage').src = img;
             document.getElementById('date').textContent = date;
             document.getElementById('desc').textContent = disc;
@@ -118,7 +122,7 @@
                 // Apply the dominant color to the modal background or any other element
                 document.getElementById('modal_image').style.backgroundColor = dominantColor;
             });
-
+            document.getElementById('postid').value=id;
             modal.classList.toggle("show-modal");
         }
 
